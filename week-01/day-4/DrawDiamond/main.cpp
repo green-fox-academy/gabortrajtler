@@ -14,31 +14,31 @@
 //
 // The diamond should have as many lines as the number was
 
-// Solution: based on DrawPyramid
+// Solution: based on DrawPyramid. Not perfect, should examine the input number (odd, even) and act accordingly.
 
-int main() {
+int main()
+{
     int lineNum;
 
     std::cout << "Number of lines: " << std::endl;
     std::cin >> lineNum;
-    int columnNum = lineNum;
+    lineNum = lineNum / 2 + 1;
 
     for (int i = 1; i <= lineNum; ++i) {
-        for (int j = columnNum-1; j >= i; --j) {
-            std::cout << "a";
+        for (int j = lineNum - 1; j >= i; --j) {
+            std::cout << " ";
         }
-        for (int k = 1; k <= (2*i-1); ++k) {
+        for (int k = 1; k <= (2 * i - 1); ++k) {
             std::cout << "*";
         }
         std::cout << std::endl;
     }
 
-    // Not ready yet!
-    for (int i = lineNum; i >= 1; --i) {
+    for (int i = 1; i <= lineNum; ++i) {
         for (int j = 1; j <= i; ++j) {
-            std::cout << "a";
+            std::cout << " ";
         }
-        for (int k = (i/2+1); k >= 1; --k) {
+        for (int k = (lineNum - i) * 2 - 1; k >= 1; --k) {
             std::cout << "*";
         }
         std::cout << std::endl;
