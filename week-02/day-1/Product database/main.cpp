@@ -35,6 +35,13 @@ int main()
 
     int productMostExpensivePrice = products["Eggs"];
     std::string productMostExpensive;
+    int productCheapestPrice = products["Eggs"];
+    std::string productCheapest;
+    float productAvgPrice = 0;
+    int productSumPrice = 0;
+    int productsPriceBelow300Count = 0;
+    bool productsPriceEq125 = false;
+
 
     std::cout << "How much is the fish? " << products["Fish"] << std::endl;
     std::cout << "What is the most expensive product? ";
@@ -44,12 +51,24 @@ int main()
             productMostExpensivePrice = iter.second;
             productMostExpensive = iter.first;
         }
+        productSumPrice += iter.second;
+        if (iter.second < 300) {
+            productsPriceBelow300Count++;
+        }
+        if (iter.second == 125) {
+            productsPriceEq125 = true;
+        }
+        if (iter.second < productCheapestPrice) {
+            productCheapestPrice = iter.second;
+            productCheapest = iter.first;
+        }
     }
+    productAvgPrice = static_cast<float>(productSumPrice) / products.size();
     std::cout << productMostExpensive << std::endl;
-    std::cout << "What is the average price?" << std::endl;
-    std::cout << "How many products' price is below 300?" << std::endl;
-    std::cout << "Is there anything we can buy for exactly 125?" << std::endl;
-    std::cout << "What is the cheapest product?" << std::endl;
+    std::cout << "What is the average price? " << productAvgPrice << std::endl;
+    std::cout << "How many products' price is below 300? " << productsPriceBelow300Count << std::endl;
+    std::cout << "Is there anything we can buy for exactly 125? " << productsPriceEq125 << std::endl;
+    std::cout << "What is the cheapest product? " << productCheapest << std::endl;
 
     return 0;
 }
