@@ -2,6 +2,8 @@
 #define RANDOM_GENERATOR
 
 void initRandom();
-int getRandomColor();
+int getRandomColor255();
+int getRandomColor75to175();
+int getRandomNumber500();
 
 #endif

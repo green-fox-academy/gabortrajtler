@@ -11,18 +11,18 @@ void draw(SDL_Renderer *gRenderer, const int &screenWidth, const int &screenHeig
 
     //choose color
     initRandom();
-    SDL_SetRenderDrawColor(gRenderer, getRandomColor(), getRandomColor(), getRandomColor(), 255);
+    SDL_SetRenderDrawColor(gRenderer, getRandomColor255(), getRandomColor255(), getRandomColor255(), 255);
 
     //draw line
     SDL_RenderDrawLine(gRenderer, screenWidth / 2 - boxWidth / 2, screenHeight / 2 - boxHeight / 2,
             screenWidth / 2 + boxWidth / 2, screenHeight / 2 - boxHeight / 2);
-    SDL_SetRenderDrawColor(gRenderer, getRandomColor(), getRandomColor(), getRandomColor(), 255);
+    SDL_SetRenderDrawColor(gRenderer, getRandomColor255(), getRandomColor255(), getRandomColor255(), 255);
     SDL_RenderDrawLine(gRenderer, screenWidth / 2 + boxWidth / 2, screenHeight / 2 - boxHeight / 2,
                        screenWidth / 2 + boxWidth / 2, screenHeight / 2 + boxHeight / 2);
-    SDL_SetRenderDrawColor(gRenderer, getRandomColor(), getRandomColor(), getRandomColor(), 255);
+    SDL_SetRenderDrawColor(gRenderer, getRandomColor255(), getRandomColor255(), getRandomColor255(), 255);
     SDL_RenderDrawLine(gRenderer, screenWidth / 2 + boxWidth / 2, screenHeight / 2 + boxHeight / 2,
                        screenWidth / 2 - boxWidth / 2, screenHeight / 2 + boxHeight / 2);
-    SDL_SetRenderDrawColor(gRenderer, getRandomColor(), getRandomColor(), getRandomColor(), 255);
+    SDL_SetRenderDrawColor(gRenderer, getRandomColor255(), getRandomColor255(), getRandomColor255(), 255);
     SDL_RenderDrawLine(gRenderer, screenWidth / 2 - boxWidth / 2, screenHeight / 2 + boxHeight / 2,
                        screenWidth / 2 - boxWidth / 2, screenHeight / 2 - boxHeight / 2);
     SDL_Delay(100);  // change color after 100 ms
