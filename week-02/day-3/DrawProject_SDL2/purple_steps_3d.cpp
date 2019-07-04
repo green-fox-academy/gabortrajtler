@@ -2,7 +2,7 @@
 #include "random.h"
 
 void drawFilledRectangle(SDL_Renderer *gRenderer, const int &startX, const int &startY, const int &squareSize,
-                         const int *fillColor, const int &screenWidth,
+                         const int fillColor[], const int &screenWidth,
                          const int &screenHeight)
 {
     //choose color
@@ -14,7 +14,7 @@ void drawFilledRectangle(SDL_Renderer *gRenderer, const int &startX, const int &
 }
 
 void drawSimpleRectangle(SDL_Renderer *gRenderer, const int &startX, const int &startY, const int &squareSize,
-                         const int *fillColor, const int &screenWidth,
+                         const int fillColor[], const int &screenWidth,
                          const int &screenHeight)
 {
     //choose color
@@ -40,7 +40,7 @@ void draw(SDL_Renderer *gRenderer, const int &screenWidth, const int &screenHeig
     int colorBlack[3] = { 0, 0, 0 };  // black
 
     //draw rectangles
-    for (int i = 10; i < screenHeight - screenHeight/3; i += static_cast<int>(squareSize)) {
+    for (int i = 10; i < screenHeight; i += static_cast<int>(squareSize)) {
         drawFilledRectangle(gRenderer, startX, startY, static_cast<int>(squareSize), colorPurple, screenWidth, screenHeight);
         drawSimpleRectangle(gRenderer, startX, startY, static_cast<int>(squareSize), colorBlack, screenWidth, screenHeight);
         startX += static_cast<int>(squareSize)-1;

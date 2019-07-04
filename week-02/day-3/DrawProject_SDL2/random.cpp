@@ -28,3 +28,10 @@ int getRandomNumber500()
     int random = rand() % 500 + 1;
     return random;
 }
+
+int getRandomNumber(int numFrom, int numTo)
+{
+/* generate number between numFrom and numTo: */
+    int random = rand() % numTo + numFrom;
+    return random;
+}

@@ -81,7 +81,7 @@ int main(int argc, char *args[]) {
         }
 
         //Clear screen
-        SDL_SetRenderDrawColor(gRenderer, 0, 204, 255, 255);
+        SDL_SetRenderDrawColor(gRenderer, 0, 204, 255, 255);  // blue
         SDL_RenderClear(gRenderer);
 
         draw(gRenderer, SCREEN_WIDTH, SCREEN_HEIGHT);
