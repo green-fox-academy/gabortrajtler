@@ -1,6 +1,7 @@
 #include <iostream>
 #include <SDL.h>
 #include "draw.h"
+#include <SDL_ttf.h>
 
 //Screen dimension constants
 const int SCREEN_WIDTH = 800;
