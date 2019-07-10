@@ -21,7 +21,21 @@
 
 class Counter
 {
-    int field;
+public:
+    Counter();
+    Counter(int counter);
+
+    int getCounter() const;
+
+    void add(int number);
+    void add();
+    int get();
+    void reset();
+
+private:
+    int _counter;
+    int initCount = 0;
+    void setCounter(int counter);
 };
 
 
