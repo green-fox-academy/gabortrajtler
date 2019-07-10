@@ -67,19 +67,19 @@ void printCharVector(const std::vector<char> &vector, const std::string &vectorN
 bool hasWinnerPos(const std::vector<char> &vector, char player)
 {
     std::vector<std::vector<int>> winnerPositions = {
-            {1, 2, 3},
-            {4, 5, 6},
-            {7, 8, 9},
+            {0, 1, 2},
+            {3, 4, 5},
+            {6, 7, 8},
+            {0, 3, 6},
             {1, 4, 7},
             {2, 5, 8},
-            {3, 6, 9},
-            {1, 5, 9},
-            {3, 5, 7}
+            {0, 4, 8},
+            {2, 4, 6}
     };
 
     for (int i = 0; i < winnerPositions.size(); ++i) {
-        if (player == vector[winnerPositions[i][0]-1] && player == vector[winnerPositions[i][1]-1] && player ==
-            vector[winnerPositions[i][2]-1]) {
+        if (player == vector[winnerPositions[i][0]] && player == vector[winnerPositions[i][1]] && player ==
+            vector[winnerPositions[i][2]]) {
             return true;
         }
     }
