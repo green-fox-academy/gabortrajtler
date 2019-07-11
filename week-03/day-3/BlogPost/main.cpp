@@ -49,12 +49,6 @@ int main()
     blog.add(blogPost0);
     blog.add(blogPost1);
     blog.add(blogPost2);
-    std::cout << "Welcome to our Blog!" << std::endl;
-    for (int i = 0; i < blog.getBlog().size(); ++i) {
-        std::cout << blog.getBlog()[i].getTitle() << " titled by " << blog.getBlog()[i].getAuthorName()
-                  << " posted at " << blog.getBlog()[0].getPublicationDate() << " Text:" << std::endl;
-        std::cout << blog.getBlog()[i].getText() << std::endl << std::endl;
-    }
 
     blog.deletePost(0);
     blog.update(1, blogPost3);
