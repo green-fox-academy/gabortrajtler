@@ -3,4 +3,4 @@ project(Sharpie)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Sharpie main.cpp Sharpie.cpp Sharpie.h)
+add_executable(Sharpie main.cpp Sharpie.cpp Sharpie.h SharpieSet.cpp SharpieSet.h)
