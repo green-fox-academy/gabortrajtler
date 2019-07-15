@@ -23,9 +23,9 @@ void Person::introduce()
 std::string Person::genderToString()
 {
     switch (_gender) {
-        case 0 :
+        case Gender::MALE:
             return "male";
-        case 1 :
+        case Gender::FEMALE:
             return "female";
         default:
             return "n/a";

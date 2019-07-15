@@ -8,25 +8,30 @@
 
 #include <string>
 
+enum class Gender
+{
+    MALE,
+    FEMALE
+};
+
 class Person
 {
 public:
-    enum Gender{
-        MALE,
-        FEMALE
-    };
 private:
+    Gender _gender;
+protected:
     std::string _name;
     int _age;
-    Gender _gender;
 public:
     Person(const std::string &name, int age, Gender gender);
 
     Person();
 
 public:
-    void introduce();
-    void getGoal();
+    virtual void introduce();
+
+    virtual void getGoal();
+
     std::string genderToString();
 };
 

@@ -1,16 +1,19 @@
 #include <vector>
 #include "Person.h"
+#include "Student.h"
+#include "Mentor.h"
+#include "Sponsor.h"
+#include "Cohort.h"
 
 int main()
 {
     std::vector<Person*> people;
 
-    Person mark("Mark", 46, Person::Gender::MALE);
+    Person mark("Mark", 46, Gender::MALE);
     people.push_back(&mark);
-    people[0]->introduce();
     Person jane;
     people.push_back(&jane);
-    /*Student john("John Doe", 20, Gender::MALE, "BME");
+    Student john("John Doe", 20, Gender::MALE, "BME");
     people.push_back(&john);
     Student student;
     people.push_back(&student);
@@ -44,6 +47,6 @@ int main()
     awesome.addMentor(&mentor);
     awesome.addMentor(&gandhi);
     awesome.info();
-*/
+
     return 0;
 }
