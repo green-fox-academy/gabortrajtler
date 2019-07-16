@@ -44,13 +44,3 @@ int Plant::getWateringLevel() const
 {
     return _wateringLevel;
 }
-
-bool Plant::needsWatering()
-{
-    return true;
-}
-
-void Plant::water(int amount)
-{
-    _wateringLevel++;
-}

@@ -29,8 +29,8 @@ public:
     std::string getPlantTypeToString() const;
     std::string getPlantColorToString() const;
     int getWateringLevel() const;
-    virtual bool needsWatering();   //TODO: make this abstract
-    virtual void water(int amount); //TODO: make this abstract
+    virtual bool needsWatering() = 0;   // pure virtual function
+    virtual void water(int amount) = 0; // pure virtual function
 
 protected:
     plantType _plantType;
