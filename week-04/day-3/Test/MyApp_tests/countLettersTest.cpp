@@ -15,13 +15,14 @@ TEST(countLetters_check, test_apple){
 
 TEST(countLetters_check, test_KingKong){
 
-    std::map<char, int> resultMapApple;
-    resultMapApple.insert(std::make_pair('K',2));
-    resultMapApple.insert(std::make_pair('i',1));
-    resultMapApple.insert(std::make_pair('n',2));
-    resultMapApple.insert(std::make_pair('g',2));
-    resultMapApple.insert(std::make_pair('o',1));
+    std::map<char, int> resultMapKingKong;
+    resultMapKingKong.insert(std::make_pair('K',2));
+    resultMapKingKong.insert(std::make_pair('i',1));
+    resultMapKingKong.insert(std::make_pair('n',2));
+    resultMapKingKong.insert(std::make_pair('g',2));
+    resultMapKingKong.insert(std::make_pair('o',1));
+    resultMapKingKong.insert(std::make_pair(' ',1));
 
     CountLetters cl;
-    EXPECT_EQ(cl.countLetters("King Kong"), resultMapApple);
+    EXPECT_EQ(cl.countLetters("King Kong"), resultMapKingKong);
 }
