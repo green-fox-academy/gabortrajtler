@@ -1,16 +1,16 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.12)
 
 # Change this to the name of the directory that contains your code
-set(PROJECT_LIB_NAME app)
+set(PROJECT_LIB_NAME MyApp_lib)
 
 # Change this to the name of the directory that contains your tests
-set(PROJECT_TESTS_NAME tests)
+set(PROJECT_TESTS_NAME MyApp_tests)
 
 # Change this to the path where you extracted the Google Test files to
 set(PATH_TO_GOOGLETEST "D:/greenfox/libs/googletest")
 
 # Change this to your project name (optional)
-set(PROJECT_NAME Anagram)
+set(PROJECT_NAME Test)
 
 
 project(${PROJECT_NAME})
