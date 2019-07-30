@@ -5,7 +5,7 @@
 void initRandom()
 {
 /* initialize "random" seed: */
-    srand(time(NULL));
+    srand(time(nullptr));
 }
 
 int getRandomColor255()
@@ -13,6 +13,7 @@ int getRandomColor255()
 /* generate number between 1 and 255: */
     int random = rand() % 255 + 1;
     return random;
+
 }
 
 int getRandomColor75to175()
