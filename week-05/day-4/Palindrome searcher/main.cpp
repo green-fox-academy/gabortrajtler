@@ -15,9 +15,16 @@ int main()
 
 std::vector<std::string> searchPalindrome(std::string input)
 {
-    // előről megyünk karakterenként vizsgálunk, ameddig meg nem szakad az isPalindrome státusz.
     bool isPalindome = true;
-    for (int i = 0; i < input; ++i) {
+    for (int i = 0; i < input.size(); ++i) {
+        char charToExamine = input[i];
+/*        int palindromeSize = 0;
+        while (isPalindome) {
+            for (int j = i; j < input.size(); ++j) {
+                if (charToExamine == input[j]) {
 
+                }
+            }
+        }*/
     }
 }
