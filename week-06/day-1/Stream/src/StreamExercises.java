@@ -29,11 +29,12 @@ public class StreamExercises {
         Fox fox3 = new Fox("Ruby", "white", 13);
         Fox fox4 = new Fox("Nemo", "blue", 4);
         Fox fox5 = new Fox("Hippy", "green", 5);
-        List<Fox> foxColl = Arrays.asList(fox1, fox2, fox3, fox4);
-        ArrayList<Fox> foxes = new ArrayList<>(foxColl);
+        List<Fox> foxes = new ArrayList<>(Arrays.asList(fox1, fox2, fox3, fox4));
         foxes.add(fox5);
 
         streamExercises.printGreenFoxes(foxes);
+        streamExercises.printYoungGreenFoxes(foxes);
+        streamExercises.printTypesOfFoxes(foxes);
 
     }
 
@@ -101,32 +102,44 @@ public class StreamExercises {
         System.out.println(Arrays.stream(inputText.split(""))
                 .collect(Collectors.groupingBy(element -> element.charAt(0), Collectors.counting())));
 
-
-        Map<Character, List<String>> frequencyOfChars =
-                Arrays.stream(inputText.split(""))
-                        .collect(Collectors.groupingBy(element -> element.charAt(0), Collectors.toList()));
+        Map<String, Long> frequencyOfChars = Arrays.stream(inputText.split(""))
+                .collect(Collectors.groupingBy(element -> element, Collectors.counting()));
         System.out.println(frequencyOfChars);
 
-/*        Map<Character, List<String>> frequencyOfChars =
+        Map<Character, List<String>> frequencyOfChars2 =
                 Arrays.stream(inputText.split(""))
-                        .collect(Collectors.groupingBy(element -> element.charAt(0), Collectors.counting()))
-                        .forEach()*/
-
-        /*        <p>The classification function maps elements to some key type {@code K}.
-         * The downstream collector operates on elements of type {@code T} and
-         * produces a result of type {@code D}. The resulting collector produces a
-         * {@code Map<K, D>}.*/
+                        .collect(Collectors.groupingBy(element -> element.charAt(0), Collectors.toList()));
+        System.out.println(frequencyOfChars2);
 
     }
 
     private void printGreenFoxes(List<Fox> foxes) {
         List<Fox> greenFoxes = foxes.parallelStream()
-                .filter(fox -> fox.getColor() == "green")
+                .filter(fox -> fox.getColor().equals("green"))
                 .collect(Collectors.toList());
+        System.out.print("Green foxes: ");
         for (Fox greenFox : greenFoxes) {
-            System.out.println(greenFox.getName());
+            System.out.print(greenFox.getName() + ", ");
         }
+        System.out.println();
+    }
 
+    private void printYoungGreenFoxes(List<Fox> foxes) {
+        List<Fox> greenFoxes = foxes.parallelStream()
+                .filter(fox -> fox.getColor().equals("green"))
+                .filter(fox -> fox.getAge() < 5)
+                .collect(Collectors.toList());
+        System.out.print("Young green foxes: ");
+        for (Fox greenFox : greenFoxes) {
+            System.out.print(greenFox.getName());
+        }
+        System.out.println();
+    }
+
+    private void printTypesOfFoxes(List<Fox> foxes) {
+        Map<String, Long> printTypesOfFoxes = foxes.parallelStream()
+                .collect(Collectors.groupingBy(Fox::getColor, Collectors.counting()));
+        System.out.println(printTypesOfFoxes);
     }
 
 
