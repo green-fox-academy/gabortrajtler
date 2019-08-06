@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Getting Started: Serving Web Content</title>
+</head>
+<body>
+<ul th:each="helloElement: ${hellos}">
+    <li th:style="'color:' + ${fontColor} + ';font-size:' + ${fontSize} + 'px;'" th:text="${helloElement} + ' ' + ${name} + '!'"></li>
+</ul>
+</body>
+</html>
