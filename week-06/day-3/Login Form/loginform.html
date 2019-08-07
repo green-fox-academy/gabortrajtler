@@ -10,13 +10,13 @@
 <body>
 	<div class="login">
 		<h1 class="login-header">Account login</h1>
-		<form class="login-container">
+		<form class="login-container" action="https://newsletter-ws.herokuapp.com/signup" method="post">
 			<label for="email" class="texts">Username (email):</label>
 			<p><input type="email" name="email" id="email" required="true" placeholder="email@address.com"></p>
 			<br>
 			<label for="password" class="texts">Password:</label>
 			<p><input type="password" name="password" id="password" required="true"></p>
-			<input type="submit" name="submit" id="submit"  value="Login">
+			<input type="submit" name="submit" id="submit" value="Login">
 		</form>
 	</div>
 </body>
