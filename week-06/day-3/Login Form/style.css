@@ -1,0 +1,78 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #FFF2C6;
+}
+
+.login {
+    width: 336px;
+    margin-top: 25px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 16px;
+    font-size: 16px;
+    padding-top: 25px;
+    padding-left: 72px;
+    padding-right: 72px;
+    padding-bottom: 25px;
+    background-color: #FFFFFF;
+    text-transform: uppercase;
+    -webkit-box-shadow: 4px 4px 15px;
+    box-shadow: 4px 4px 15px;
+}
+
+/* Reset top and bottom margins from certain elements */
+.login-header,
+.login p {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    text-transform: uppercase;
+}
+
+.login-header {
+    font-weight: 100;
+    text-transform: uppercase;
+    font-size: 25px;
+    padding-top: 6px;
+    margin-top: 15px;
+    padding-bottom: 22px;
+}
+
+.texts {
+    font-size: small;
+}
+
+.login input[type="email"],
+.login input[type="password"] {
+  background: #fff;
+  border-color: #bbb;
+  color: #555;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  padding: 10px;
+  outline: 0;
+  font-family: inherit;
+  font-size: 0.95em;
+}
+
+/* Text fields' focus effect */
+.login input[type="email"]:focus,
+.login input[type="password"]:focus {
+  border-color: #009E0D;
+}
+
+.login input[type="submit"] {
+    background-color: #22DD37;
+    border-color: transparent;
+    color: #FFFFFF;
+    cursor: pointer;
+    border-radius: 36px;
+    border-width: 12px 30px;
+    padding-top: 0px;
+    margin-top: 30px;
+    font-weight: bold;
+}
