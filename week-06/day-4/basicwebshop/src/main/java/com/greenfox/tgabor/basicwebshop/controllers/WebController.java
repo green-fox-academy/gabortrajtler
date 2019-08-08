@@ -80,5 +80,5 @@ public class WebController {
         model.addAttribute("shopItems", shop.getSearchedItems(searchText));
         return "webshop";
     }
-    
+
 }
