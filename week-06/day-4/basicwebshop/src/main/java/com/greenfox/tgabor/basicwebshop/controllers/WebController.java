@@ -5,6 +5,8 @@ import com.greenfox.tgabor.basicwebshop.models.ShopItem;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
@@ -16,7 +18,7 @@ public class WebController {
         initShop();
     }
 
-    private void initShop () {
+    private void initShop() {
         shop = new Shop();
         ShopItem shopItem1 = new ShopItem("Running shoes", "Nike running shoes for every day sport",
                 10000, 5);
@@ -69,6 +71,14 @@ public class WebController {
     public String mostExpensive(Model model) {
         model.addAttribute("statisticsText", "Most expensive: " + shop.getMostExpensiveItem());
         return "statistics";
+    }
+
+    @RequestMapping("/search")
+    public String search(Model model,
+                         @RequestParam("searchtext") String searchText,
+                         @RequestParam("searchbutton") String searchButton) {
+        model.addAttribute("shopItems", shop.getSearchedItems(searchText));
+        return "webshop";
     }
 
 

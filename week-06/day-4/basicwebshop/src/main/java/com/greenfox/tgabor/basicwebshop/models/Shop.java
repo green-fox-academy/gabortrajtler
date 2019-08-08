@@ -56,4 +56,10 @@ public class Shop {
                 .map(ShopItem::getName)
                 .get();
     }
+
+    public Object getSearchedItems(String searchText) {
+        return shopItems.parallelStream()
+                .filter(item -> item.getName().toLowerCase().contains(searchText.toLowerCase()) || item.getDescription().toLowerCase().contains(searchText.toLowerCase()))
+                .collect(Collectors.toList());
+    }
 }
