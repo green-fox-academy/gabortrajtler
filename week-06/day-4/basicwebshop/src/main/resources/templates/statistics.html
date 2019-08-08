@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>Gábor's Webshop</title>
+    <link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="table-title">
+    <h2>Gábor's Webshop</h2>
+</div>
+<div class="upper-buttons">
+	<button type="button" onclick="location.href = 'http://localhost:8080/only-available'">Only available</button>
+	<button type="button" onclick="location.href = 'http://localhost:8080/cheapest-first'">Cheapest first</button>
+	<button type="button" onclick="location.href = 'http://localhost:8080/contains-nike'">Contains nike</button>
+	<button type="button" onclick="location.href = 'http://localhost:8080/average-stock'">Average stock</button>
+	<button type="button" onclick="location.href = 'http://localhost:8080/most-expensive'">Most expensive available</button>
+</div>
+<h2 th:text="${statisticsText}"></h2>
+</body>
+
+</html>
