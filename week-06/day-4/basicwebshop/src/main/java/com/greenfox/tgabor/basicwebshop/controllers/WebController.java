@@ -80,22 +80,5 @@ public class WebController {
         model.addAttribute("shopItems", shop.getSearchedItems(searchText));
         return "webshop";
     }
-
-
-
-/*    //http://localhost:8080/web/hello?fontSize=25&fontColor=red&name=Gabor
-    @RequestMapping("/web/hello")
-    public String sayHello(
-            Model model,
-            @RequestParam(value = "name", required = false, defaultValue = "fellow citizen") String userName,
-            @RequestParam(value = "fontSize", required = false, defaultValue = "20") String fontSize,
-            @RequestParam(value = "fontColor", required = false, defaultValue = "black") String fontColor) {
-        Greeting greeting = new Greeting();
-        String[] hellos = greeting.getHellos();
-        model.addAttribute("hellos", hellos);
-        model.addAttribute("name", userName);
-        model.addAttribute("fontSize", fontSize);
-        model.addAttribute("fontColor", fontColor);
-        return "hello";
-    }*/
+    
 }
