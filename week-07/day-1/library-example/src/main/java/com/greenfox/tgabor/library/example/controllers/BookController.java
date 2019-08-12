@@ -1,6 +1,6 @@
-package com.greenfox.tgabor.library.example.controller;
+package com.greenfox.tgabor.library.example.controllers;
 
-import com.greenfox.tgabor.library.example.model.Book;
+import com.greenfox.tgabor.library.example.models.Book;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

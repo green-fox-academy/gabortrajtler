@@ -1,4 +1,4 @@
-package com.greenfox.tgabor.library.example.model;
+package com.greenfox.tgabor.library.example.models;
 
 public class Book {
     private static int nextId = 0;

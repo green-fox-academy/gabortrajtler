@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bank Of Symba - accounts</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+<div>
+    <h1
+            th:text="|Name, Type (Balance)|"
+    ></h1>
+    <div th:each="account : ${accounts}">
+        <h2
+                th:text="|${account.name}, ${account.animalType} (${#numbers.formatDecimal(account.balance,1,2,'POINT')} Zibra)|"
+        ></h2>
+    </div>
+</div>
+</body>
+</html>
