@@ -4,7 +4,10 @@ import com.greenfox.tgabor.bank_of_symba.models.BankAccount;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +35,23 @@ public class BankAccountController {
     public String showAccounts(Model model){
         model.addAttribute("accounts", accounts);
         return "accounts";
+    }
+
+    @RequestMapping(path = "/raise-balance", method = RequestMethod.GET)
+    public String raiseBalanceForm(Model model) {
+        model.addAttribute("accounts", accounts );
+        return "raise_balance";
+    }
+
+    @RequestMapping(path = "/raise-balance", method = RequestMethod.POST)
+    public String raiseBalance(final HttpServletRequest req) {
+        final Integer accountId = Integer.valueOf(req.getParameter("accountId"));
+        if(!accounts.get(accountId).getKingStatus()) {
+            accounts.get(accountId).setBalance(accounts.get(accountId).getBalance() + 10);
+        } else {
+            accounts.get(accountId).setBalance(accounts.get(accountId).getBalance() + 100);
+        }
+        return "redirect:/accounts";
     }
 
     @GetMapping("/html-test")
