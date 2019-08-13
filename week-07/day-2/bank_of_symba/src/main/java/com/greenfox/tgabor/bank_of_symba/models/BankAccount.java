@@ -2,16 +2,16 @@ package com.greenfox.tgabor.bank_of_symba.models;
 
 public class BankAccount {
     String name;
-    int balance;
+    Integer balance;
     String animalType;
-    boolean kingStatus;
+    Boolean kingStatus;
     String side;
 
-    public BankAccount(String name, int balance, String animalType, String side) {
+    public BankAccount(String name, Integer balance, String animalType, String side, Boolean kingStatus) {
         this.name = name;
         this.balance = balance;
         this.animalType = animalType;
-        this.kingStatus = false;
+        this.kingStatus = kingStatus;
         this.side = side;
     }
 
@@ -23,11 +23,11 @@ public class BankAccount {
         this.name = name;
     }
 
-    public int getBalance() {
+    public Integer getBalance() {
         return balance;
     }
 
-    public void setBalance(int balance) {
+    public void setBalance(Integer balance) {
         this.balance = balance;
     }
 
@@ -39,11 +39,11 @@ public class BankAccount {
         this.animalType = animalType;
     }
 
-    public boolean getKingStatus() {
+    public Boolean getKingStatus() {
         return kingStatus;
     }
 
-    public void setKingStatus(boolean kingStatus) {
+    public void setKingStatus(Boolean kingStatus) {
         this.kingStatus = kingStatus;
     }
 
