@@ -13,5 +13,13 @@
 <form action="#" th:action="@{/useful/email?email=is@this.valid}" method="post">
     <button type="submit">Email validator (edit in the URL)</button>
 </form>
+<br>
+<form action="#" th:action="@{/useful/caesar/encode}" method="get">
+    <button type="submit">Caesar encoder</button>
+</form>
+
+<form action="#" th:action="@{/useful/caesar/decode}" method="get">
+    <button type="submit">Caesar decoder</button>
+</form>
 </body>
 </html>

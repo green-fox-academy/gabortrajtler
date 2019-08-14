@@ -8,19 +8,8 @@ import org.springframework.web.bind.annotation.*;
 
 // # Useful Utilities
 
-// Create a controller with a few endpoints where the user can use the useful utilities.
-
-// ## First steps
-// - Have a main page at `/useful`
-// - This should contain links to all available utilities detailed below
-
-// Use this `UtilityService` as a dependency for your controller.
-
 @Controller
 public class UsefulAppsController {
-
-    private UtilityService utilityService;
-    private String bgColor;
 
     @GetMapping(value = {"/", "/useful"})
     public String index(){
@@ -39,6 +28,25 @@ public class UsefulAppsController {
             model.addAttribute("emailAddr", emailAddr);
             model.addAttribute("textColor", utilityService.validateEmail(emailAddr));
         return "email";
+    }
+
+    @GetMapping("/useful/caesar/{mode}")
+    public String getCaesarForm(@PathVariable String mode) {
+        return "caesar";
+    }
+
+    @RequestMapping(value = "/useful/caesar/{mode}", method = RequestMethod.POST)
+    public String caesarEncode(Model model,
+                               @PathVariable String mode,
+                               @RequestParam(name = "text") String text,
+                               @RequestParam(name = "number") Integer number,
+                               @Autowired UtilityService utilityService){
+        if (mode.equals("encode")) {
+            model.addAttribute("caesarText", utilityService.caesar(text, number));
+        } else if (mode.equals("decode")) {
+            model.addAttribute("caesarText", utilityService.caesar(text, -number));
+        }
+        return "caesar";
     }
 
 }

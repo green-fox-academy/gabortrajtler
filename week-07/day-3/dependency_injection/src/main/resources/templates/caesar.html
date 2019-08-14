@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Useful apps</title>
+    <link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h2 th:if="${caesarText}" th:text="${caesarText}"></h2>
+<br>
+    <form
+            action="#"
+            th:action="@{/useful/caesar/__${mode}__}"
+            th:method="post"
+    >
+        <label for="text">Caesar Text:</label>
+        <input
+                type="text"
+                name="text"
+                id="text"
+                required
+        />
+
+        <label for="number" th:text="|Number to ${mode} with:|"></label>
+        <input
+                type="number"
+                name="number"
+                id="number"
+                required
+        />
+
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
