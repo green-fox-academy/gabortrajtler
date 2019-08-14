@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Useful apps</title>
+    <link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<form action="#" th:action="@{/useful/colored}" method="get">
+    <button type="submit">Colored BG</button>
+</form>
+<br>
+<form action="#" th:action="@{/useful/email?email=is@this.valid}" method="post">
+    <button type="submit">Email validator (edit in the URL)</button>
+</form>
+</body>
+</html>
