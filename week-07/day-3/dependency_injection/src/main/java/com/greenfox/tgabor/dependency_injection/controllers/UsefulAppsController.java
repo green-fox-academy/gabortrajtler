@@ -48,5 +48,4 @@ public class UsefulAppsController {
         }
         return "caesar";
     }
-
 }

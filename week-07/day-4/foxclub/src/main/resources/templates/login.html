@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Login - Programmer Fox Club</title>
+</head>
+<body>
+<h2>Welcome to Programmer Fox CLub!</h2>
+<p>Please provide a name, so you can associate it to your pet!</p>
+<div>
+    <form action="/login" method="post" th:object="${newFox}">
+        <div>
+            <label for="login-name">Name: </label>
+            <input type="text" id="login-name" name="login-name" th:field="*{foxName}">
+        </div>
+        <div>
+            <label for="food">Favourite food: </label>
+            <input type="text" id="food" name="food" th:field="*{food}">
+        </div>
+        <div>
+            <label for="drink">Favourite drink: </label>
+            <input type="text" id="drink" name="drink" th:field="*{drink}">
+        </div>
+        <div>
+            <label for="starting-trick">Starting trick:</label>
+            <select id="starting-trick" name="starting-trick" th:field="*{trickId}">
+                <option th:each="trick : ${tricks}" th:value="${trick.id}" th:text="${trick.name}"></option>
+            </select>
+        </div>
+        <div>
+            <input type="submit" value="GO">
+        </div>
+    </form>
+</div>
+</body>
+</html>

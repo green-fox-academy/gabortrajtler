@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Greenfox Class App - Add new student</title>
+    <link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<form
+        action="#"
+        th:action="@{/gfa/save}"
+        method="get"
+>
+    <label for="name">Name</label>
+    <input
+            type="text"
+            name="name"
+            id="name"
+            required
+    />
+
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>

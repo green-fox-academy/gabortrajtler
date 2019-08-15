@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Greenfox Class App</title>
+    <link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Student name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="student : ${students}">
+        <td th:text="${student}">
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
