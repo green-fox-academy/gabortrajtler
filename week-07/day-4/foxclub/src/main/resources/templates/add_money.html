@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Send Money - Programmer Fox Club</title>
+</head>
+<body>
+<h2>Donate 5000 Ft</h2>
+<img src="greenfox.png">
+<div>
+    <form th:action="@{/addmoney}" th:method="post" th:object="${newTrick}">
+        <div>
+            <label for="money-name">Send money to Fox: </label>
+            <input type="text" id="money-name" name="money-name" th:field="*{trickName}">
+            <input type="submit" value="Send Money">
+        </div>
+    </form>
+</div>
+<br>
+<table>
+    <thead>
+    <tr>
+        <th>Money sent:</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="trick : ${tricks}">
+        <td th:text="${trick.name} + ' - 5000 Ft'">
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

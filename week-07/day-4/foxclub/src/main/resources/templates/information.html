@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title>Programmer Fox Club</title>
@@ -11,7 +11,7 @@
     </li>
 </ul>
 <img src="greenfox.png">
-<p> This is Mr Fox, currently living on pizza and lemonade. He knows 2 tricks.</p>
+<p th:text="|This is ${foxName}, currently living on pizza and lemonade. He knows 2 tricks.|"></p>
 <h2>Known tricks</h2>
 <ul>
     <li>write HTML</li>

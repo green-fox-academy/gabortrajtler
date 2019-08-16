@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Nice Fox pictures - Programmer Fox Club</title>
+</head>
+<body>
+<h2>Nice Fox pictures</h2>
+<img src="greenfox.png">
+<div>
+    <form action="/nicepictures" method="post" style="visibility: hidden" id="form">
+        <div>
+            <label for="money-name">Send money to Fox: </label>
+            <input type="text" id="money-name" name="trickName" value="GreenFox">
+            <input type="submit" value="Send Money">
+        </div>
+    </form>
+</div>
+<br>
+<a href="#" onclick="document.getElementById('form').submit();">Click HERE - nice Fox pictures!</a>
+</body>
+</html>
