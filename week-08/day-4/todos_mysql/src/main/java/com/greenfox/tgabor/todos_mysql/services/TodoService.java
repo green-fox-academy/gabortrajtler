@@ -11,4 +11,6 @@ public interface TodoService {
   List<Todo> findAll();
 
   Todo save(NewTodoDTO newTodoDTO);
+
+  void delete(Long todoId);
 }
