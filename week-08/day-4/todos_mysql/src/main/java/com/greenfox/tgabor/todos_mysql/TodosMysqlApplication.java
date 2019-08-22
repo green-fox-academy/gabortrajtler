@@ -23,9 +23,5 @@ public class TodosMysqlApplication implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-    todoRepository.save(new Todo("új töltő vétel"));
-    todoRepository.save(new Todo("refactor secu részek (SecurityConfig behúzása)"));
-    todoRepository.save(new Todo("mozgás óránként", true, false));
-    todoRepository.save(new Todo("H2 db-be adatok rakása", true, true));
   }
 }
