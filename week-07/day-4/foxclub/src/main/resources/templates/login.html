@@ -8,7 +8,7 @@
 <h2>Welcome to Programmer Fox CLub!</h2>
 <p>Please provide a name, so you can associate it to your pet!</p>
 <div>
-    <form>
+    <form th:action="@{/login}" th:method="post">
         <div>
             <label for="login-name">Name: </label>
             <input type="text" id="login-name" name="login-name">

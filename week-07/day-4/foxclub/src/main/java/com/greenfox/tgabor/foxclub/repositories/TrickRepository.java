@@ -10,5 +10,6 @@ import java.util.List;
 public interface TrickRepository extends CrudRepository<Trick, Integer> {
 
     List<Trick> findAll();
+    List<Trick> findTricksByName(String foxName);
 
 }

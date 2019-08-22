@@ -27,9 +27,14 @@ public class MainController {
   }
 
   @GetMapping("/")
-  public String information(Model model, @RequestParam("name") String foxName) {
-    model.addAttribute("foxName", foxName);
-    return "information";
+  public String information(Model model, @RequestParam(value = "name", required = false) String foxName) {
+    if (foxName == null) {
+      return "login";
+    } else {
+      Fox foxProfile = foxService.getFox(foxName);
+      model.addAttribute("foxProfile", foxService.getFox(foxName));
+      return "information";
+    }
   }
 
   @GetMapping("/login")

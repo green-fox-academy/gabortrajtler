@@ -31,4 +31,9 @@ public class FoxServiceImpl implements FoxService {
     }
     return foxRepository.save(fox);
   }
+
+  @Override
+  public Fox getFox(String foxName) {
+    return foxRepository.findByName(foxName);
+  }
 }

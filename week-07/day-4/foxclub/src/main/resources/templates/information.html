@@ -4,18 +4,17 @@
     <meta charset="UTF-8"/>
     <title>Programmer Fox Club</title>
 </head>
-<body>
+<body th:object="${foxProfile}">
 <ul>
     <li>
         <a href="#">Information</a>
     </li>
 </ul>
 <img src="greenfox.png">
-<p th:text="|This is ${foxName}, currently living on pizza and lemonade. He knows 2 tricks.|"></p>
+<p th:text="|This is *{name}, currently living on *{food} and *{drink}. He knows *{tricks.size()} tricks.|"></p>
 <h2>Known tricks</h2>
-<ul>
-    <li>write HTML</li>
-    <li>code in Java</li>
+<ul th:each="foxTrick : *{tricks}">
+    <li th:text="${foxTrick.name}"/>
 </ul>
 </body>
 </html>

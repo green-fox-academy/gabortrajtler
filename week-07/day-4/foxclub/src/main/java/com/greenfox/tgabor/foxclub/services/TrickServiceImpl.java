@@ -25,7 +25,12 @@ public class TrickServiceImpl implements TrickService {
         return trickRepository.findAll();
     }
 
-    @Override
+  @Override
+  public List<Trick> getKnownTricks(String foxName) {
+    return trickRepository.findTricksByName(foxName);
+  }
+
+  @Override
     public Trick saveTrick(NewTrickDTO trickDTO) {
         Trick trick = new Trick(trickDTO.getTrickName());
         return trickRepository.save(trick);

@@ -7,6 +7,7 @@ import java.util.List;
 public interface TrickService {
 
     List<Trick> listAllTricks();
+    List<Trick> getKnownTricks(String foxName);
     Trick saveTrick(NewTrickDTO trickDTO);
 
 }
