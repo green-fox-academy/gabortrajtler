@@ -1,0 +1,144 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
+
+body {
+    background-color: #FFFFFF;
+    font-family: "Roboto", helvetica, arial, sans-serif;
+    margin-bottom: 30px;
+}
+
+.table-title h2 {
+    color: #1EC9D2;
+    font-size: 38px;
+    font-weight: 400;
+    font-style: normal;
+    font-family: "Roboto", helvetica, arial, sans-serif;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 1px rgba(0,0,0,1.00);
+    border-bottom: medium solid #1fbcd2;
+}
+
+div.table-title, .upper-buttons, .search {
+    margin: auto;
+    max-width: 850px;
+    padding: 5px;
+}
+
+/* Upper buttons */
+.upper-buttons {
+	margin-bottom: 50px;
+}
+
+.upper-buttons [type="button"] {
+    background-color: #FF0004;
+    border-color: transparent;
+    color: #FFFFFF;
+    cursor: pointer;
+    border-radius: 5px;
+    border-width: 5px 3px;
+    font-size: 15px;
+    text-transform: uppercase;
+	float: left;  /* get in the same line */
+	margin-right: 10px;
+}
+
+/* Search */
+
+.texts {
+    font-size: 20px;
+    color: #FF383C;
+    font-weight: normal;
+}
+
+/* Input text box */
+.search input[type="text"] {
+  background: #fff;
+  border-color: #bbb;
+  color: #555;
+  box-sizing: border-box;
+  width: 86%;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px;
+  padding: 10px;
+  outline: 0;
+  font-family: inherit;
+  font-size: 25px;
+}
+
+/* Text fields' focus effect */
+.search input[type="text"]:focus {
+  border-color: #FF0004;
+}
+
+.search input[type="submit"] {
+    background-color: #FF0004;
+    border-color: transparent;
+    color: #FFFFFF;
+    cursor: pointer;
+    border-radius: 5px;
+    border-width: 10px 5px;
+    font-size: 27px;
+}
+
+
+/*** Table Styles **/
+.table-fill {
+    background: white;
+    border-collapse: collapse;
+    margin: auto;
+    max-width: 850px;
+    width: 100%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+ 
+th {
+    color: #000000;
+    background: #00F3FF;
+    border-right: 2px solid #FFFFFF;
+    font-size: 20px;
+    font-weight: 300;
+    padding: 24px;
+    text-transform: uppercase;
+}
+  
+tr {
+    color: #666B85;
+    font-size: 16px;
+}
+
+tr:hover td {
+    background: #4E5066;
+    color: #FFFFFF;
+    border-top: 1px solid #22262e;
+    border-right: 1px solid #FFFFFF;
+}
+ 
+tr:nth-child(odd) {
+  background:#EBEBEB;
+}
+ 
+tr:nth-child(odd):hover {
+  background:#4E5066;
+}
+
+td {
+    background: #FFFFFF;
+    padding: 20px;
+    text-align: left;
+    vertical-align: middle;
+    font-weight: 300;
+    font-size: 18px;
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+}
+
+td:last-child {
+  border-right: 0px;
+}
+
+th.text-center {
+  text-align: center;
+}
+
+th.text-left {
+  text-align: left;
+}

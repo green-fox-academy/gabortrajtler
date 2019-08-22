@@ -1,4 +1,4 @@
-package com.greenfox.tgabor.todos_mysql.entity;
+package com.greenfox.tgabor.todos_mysql.model.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,16 +9,19 @@ public class Todo {
   @Id @GeneratedValue
   private Long id;
   private String title;
-  private Boolean urgent;
-  private Boolean done;
+  private Boolean urgent = false;
+  private Boolean done = false;
 
-  public Todo() {
-    urgent = false;
-    done = false;
-  }
+  public Todo() {}
 
   public Todo(String title) {
     this.title = title;
+  }
+
+  public Todo(String title, Boolean urgent, Boolean done) {
+    this.title = title;
+    this.urgent = urgent;
+    this.done = done;
   }
 
   public Long getId() {

@@ -3,11 +3,29 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Todo list</title>
+    <link href="/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<h2>Todos for today:</h2>
-<ul th:each="todo : *{todos}">
-    <li th:text="${todo.title}"></li>
-</ul>
+<div class="table-title">
+    <h2>Todos for today:</h2>
+</div>
+<table class="table-fill">
+    <thead>
+    <tr>
+        <th class="text-center">Id</th>
+        <th class="text-center">Action</th>
+        <th class="text-center">Done</th>
+        <th class="text-center">Urgent</th>
+    </tr>
+    </thead>
+    <tbody class="table-hover">
+    <tr th:each="todo: ${todos}">
+        <td th:class="'text-left'" th:text="${todo.id}">
+        <td th:class="'text-left'" th:text="${todo.title}">
+        <td th:class="'text-left'" th:text="${todo.done}">
+        <td th:class="'text-left'" th:text="${todo.urgent}">
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
