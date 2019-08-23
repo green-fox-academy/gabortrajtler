@@ -3,8 +3,10 @@ package com.greenfox.tgabor.reddit.services;
 import com.greenfox.tgabor.reddit.model.dtos.NewRedditDTO;
 import com.greenfox.tgabor.reddit.model.entity.Reddit;
 import com.greenfox.tgabor.reddit.repository.RedditRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -12,6 +14,7 @@ public class RedditServiceImpl implements RedditService {
 
   private RedditRepository redditRepository;
 
+  @Autowired
   public RedditServiceImpl(RedditRepository redditRepository) {
     this.redditRepository = redditRepository;
   }
@@ -22,8 +25,8 @@ public class RedditServiceImpl implements RedditService {
   }
 
   @Override
-  public Reddit save(NewRedditDTO newRedditDTO) {
-    Reddit reddit = new Reddit(newRedditDTO.getTitle(), newRedditDTO.getUrl());
+  public Reddit save(NewRedditDTO newRedditDTO, LocalDateTime creationDate) {
+    Reddit reddit = new Reddit(newRedditDTO.getTitle(), newRedditDTO.getUrl(), creationDate);
     return redditRepository.save(reddit);
   }
 

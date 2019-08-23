@@ -3,7 +3,7 @@ package com.greenfox.tgabor.reddit.model.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.time.LocalDateTime;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Entity
@@ -12,12 +12,14 @@ public class Reddit {
   private Long id;
   private String title;
   private String url;
+  private LocalDateTime creationDate;
 
   private AtomicLong voteCount = new AtomicLong(0);
 
-  public Reddit(String title, String url) {
+  public Reddit(String title, String url, LocalDateTime creationDate) {
     this.title = title;
     this.url = url;
+    this.creationDate = creationDate;
   }
 
   public Reddit() {
@@ -55,4 +57,11 @@ public class Reddit {
     voteCount.getAndDecrement();
   }
 
+  public LocalDateTime getCreationDate() {
+    return creationDate;
+  }
+
+  public void setCreationDate(LocalDateTime creationDate) {
+    this.creationDate = creationDate;
+  }
 }
