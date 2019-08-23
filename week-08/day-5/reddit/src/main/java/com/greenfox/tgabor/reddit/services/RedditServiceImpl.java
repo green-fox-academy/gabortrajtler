@@ -21,6 +21,8 @@ public class RedditServiceImpl implements RedditService {
 
   @Override
   public List<Reddit> findAll() {
+    List<Reddit> expiredReddits = redditRepository.findByExpirityDateIsLessThan(LocalDateTime.now());
+    redditRepository.deleteAll(expiredReddits);
     return redditRepository.findAllByOrderByVoteCountDesc();
   }
 
