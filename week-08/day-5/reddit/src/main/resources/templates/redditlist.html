@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Reddit list</title>
+    <link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="upper-buttons">
+    <a th:href="@{/submit}">Submit new post</a>
+</div>
+<div class="table-title">
+    <h2>Trending posts</h2>
+</div>
+<table class="table-fill">
+    <tbody class="table-hover">
+    <tr th:each="reddit: ${reddits}">
+        <td th:class="'text-left'" th:text="${reddit.voteCount}">
+        <td th:class="'text-left'" th:text="'+'">
+        <td th:class="'text-left'" th:text="'-'">
+        <td th:class="'text-left'"><a th:text="${reddit.title}" th:href="@{${reddit.url}}">placeholder</a></td>
+        <td th:class="'text-left'"><a th:href="@{${reddit.id} + '/delete'}">delete</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
