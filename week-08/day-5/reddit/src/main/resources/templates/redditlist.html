@@ -16,9 +16,9 @@
     <tbody class="table-hover">
     <tr th:each="reddit: ${reddits}">
         <td th:class="'text-left'" th:text="${reddit.voteCount}">
-        <td th:class="'text-left'" th:text="'+'">
-        <td th:class="'text-left'" th:text="'-'">
-        <td th:class="'text-left'"><a th:text="${reddit.title}" th:href="@{${reddit.url}}">placeholder</a></td>
+        <td th:class="'text-left'"><a th:href="@{/voteup(id=${reddit.id})}">+</a></td>
+        <td th:class="'text-left'"><a th:href="@{/votedown(id=${reddit.id})}">-</a></td>
+        <td th:class="'text-left'"><a th:text="${reddit.title}" th:href="@{${reddit.url}}" th:target="'_blank'">placeholder</a></td>
         <td th:class="'text-left'"><a th:href="@{${reddit.id} + '/delete'}">delete</a></td>
     </tr>
     </tbody>

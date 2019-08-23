@@ -104,6 +104,7 @@ th {
 tr {
     color: #666B85;
     font-size: 16px;
+    border-top: 1px solid #FFFFFF;
 }
 
 tr:hover td {

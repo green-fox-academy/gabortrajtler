@@ -11,4 +11,5 @@ public interface RedditRepository extends CrudRepository<Reddit, Long> {
 
   @Override
   List<Reddit> findAll();
+  List<Reddit> findAllByOrderByVoteCountDesc();
 }

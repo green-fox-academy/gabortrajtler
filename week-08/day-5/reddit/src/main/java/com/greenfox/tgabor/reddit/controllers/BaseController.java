@@ -9,19 +9,16 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping({"/", "/reddit"})
-public class RedditController {
+public class BaseController {
   private RedditService redditService;
 
-  public RedditController(RedditService redditService) {
+  public BaseController(RedditService redditService) {
     this.redditService = redditService;
   }
 
   @RequestMapping("")
-  public String list(Model model,
-                     @RequestParam(value = "isActive", required = false) Boolean isActive) {
-    if (isActive == null) {
-      model.addAttribute("reddits", redditService.findAll());
-    }
+  public String list(Model model) {
+    model.addAttribute("reddits", redditService.findAll());
     return "redditlist";
   }
 

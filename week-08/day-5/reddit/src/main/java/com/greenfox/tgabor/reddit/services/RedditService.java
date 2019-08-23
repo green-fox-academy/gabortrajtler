@@ -11,4 +11,6 @@ public interface RedditService {
   Reddit save(NewRedditDTO newRedditDTO);
 
   void delete(Long redditId);
+  void voteUp(Long redditId);
+  void voteDown(Long redditId);
 }

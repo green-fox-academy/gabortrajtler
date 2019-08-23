@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class RedditServiceImpl implements RedditService {
 
-  RedditRepository redditRepository;
+  private RedditRepository redditRepository;
 
   public RedditServiceImpl(RedditRepository redditRepository) {
     this.redditRepository = redditRepository;
@@ -18,7 +18,7 @@ public class RedditServiceImpl implements RedditService {
 
   @Override
   public List<Reddit> findAll() {
-    return redditRepository.findAll();
+    return redditRepository.findAllByOrderByVoteCountDesc();
   }
 
   @Override
@@ -30,5 +30,23 @@ public class RedditServiceImpl implements RedditService {
   @Override
   public void delete(Long redditId) {
     redditRepository.deleteById(redditId);
+  }
+
+  @Override
+  public void voteUp(Long redditId) {
+    if (redditRepository.findById(redditId).isPresent()) {
+      Reddit reddit = redditRepository.findById(redditId).get();
+      reddit.incrementVoteCount();
+      redditRepository.save(reddit);
+    }
+  }
+
+  @Override
+  public void voteDown(Long redditId) {
+    if (redditRepository.findById(redditId).isPresent()) {
+      Reddit reddit = redditRepository.findById(redditId).get();
+      reddit.decrementVoteCount();
+      redditRepository.save(reddit);
+    }
   }
 }

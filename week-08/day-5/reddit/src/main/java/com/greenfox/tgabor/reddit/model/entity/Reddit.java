@@ -12,6 +12,7 @@ public class Reddit {
   private Long id;
   private String title;
   private String url;
+
   private AtomicLong voteCount = new AtomicLong(0);
 
   public Reddit(String title, String url) {
@@ -47,6 +48,11 @@ public class Reddit {
   }
 
   public void incrementVoteCount() {
-    voteCount.incrementAndGet();
+    voteCount.getAndIncrement();
   }
+
+  public void decrementVoteCount() {
+    voteCount.getAndDecrement();
+  }
+
 }
