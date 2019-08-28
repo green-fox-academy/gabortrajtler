@@ -14,16 +14,16 @@ public class VoteController {
     this.redditService = redditService;
   }
 
-  @GetMapping("/voteup")
+  @GetMapping("/pub/voteup")
   public String voteUp(@RequestParam("id") Long id) {
     redditService.voteUp(id);
-    return "redirect:/reddit";
+    return "redirect:/";
   }
 
-  @GetMapping("/votedown")
+  @GetMapping("/pub/votedown")
   public String voteDown(@RequestParam("id") Long id) {
     redditService.voteDown(id);
-    return "redirect:/reddit";
+    return "redirect:/";
   }
 
 }

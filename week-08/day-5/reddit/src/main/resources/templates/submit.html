@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Reddit: Submit a new post</title>
-    <link href="/style.css" rel="stylesheet" type="text/css">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div class="table-title">
@@ -11,7 +11,7 @@
 </div>
 <br><br>
 <div class="upper-buttons">
-    <form th:action="@{/submit}" th:method="post" th:object="${newReddit}">
+    <form th:action="@{/pub/submit}" th:method="post" th:object="${newReddit}">
         <div>
             <label for="reddit-title">Title:</label>
             <input type="text" id="reddit-title" name="reddit-title" th:field="*{title}">

@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Reddit list</title>
-    <link href="/style.css" rel="stylesheet" type="text/css">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div class="upper-buttons">
-    <a th:href="@{/submit}">Submit new post</a>
+    <a th:href="@{/pub/submit}">Submit new post</a>
 </div>
 <div class="table-title">
     <h2>Trending posts</h2>
@@ -16,19 +16,19 @@
     <tbody class="table-hover">
     <tr th:each="reddit: ${reddits}">
         <td th:class="'text-left'" th:text="${reddit.voteCount}">
-        <td th:class="'text-left'"><a th:href="@{/voteup(id=${reddit.id})}">+</a></td>
-        <td th:class="'text-left'"><a th:href="@{/votedown(id=${reddit.id})}">-</a></td>
+        <td th:class="'text-left'"><a th:href="@{/pub/voteup(id=${reddit.id})}">+</a></td>
+        <td th:class="'text-left'"><a th:href="@{/pub/votedown(id=${reddit.id})}">-</a></td>
         <td th:class="'text-left'"><a th:text="${reddit.title}" th:href="@{${reddit.url}}" th:target="'_blank'">placeholder</a></td>
         <td th:class="'text-left'" th:text="'valid until: ' + ${reddit.expirityDate}">
         <td th:class="'text-left'" th:text="${reddit.creationDate}">
-        <td th:class="'text-left'"><a th:href="@{${reddit.id} + '/delete'}">delete</a></td>
+        <td th:class="'text-left'"><a th:href="@{'/pub/' + ${reddit.id} + '/delete'}">delete</a></td>
     </tr>
     </tbody>
 </table>
 <div class="pagination">
     <ul>
         <li th:each="pageNumber: ${pageNumbers}">
-            <a th:href="@{'/pages/' + ${pageNumber}}" th:text="${pageNumber}"></a>
+            <a th:href="@{'/pub/pages/' + ${pageNumber}}" th:text="${pageNumber}"></a>
         </li>
     </ul>
 </div>

@@ -28,13 +28,13 @@ public class BaseController {
 
   @RequestMapping("")
   public String list() {
-    return "redirect:/pages/1";
+    return "redirect:/pub/pages/1";
   }
 
-  @RequestMapping("/pages/{page}")
+  @RequestMapping("/pub/pages/{page}")
   public String listPages(Model model, @PathVariable(value = "page", required = false) Integer pageIndex) {
     if (pageIndex == null || pageIndex == 0) {
-      return "redirect:/pages/1";
+      return "redirect:/pub/pages/1";
     } else {
       Page<Reddit> redditPage = redditService.findAllPages(pageIndex - 1, 10);
       model.addAttribute("reddits", redditPage.getContent());
@@ -47,19 +47,19 @@ public class BaseController {
     return "redditlist";
   }
 
-  @GetMapping("/submit")
+  @GetMapping("/pub/submit")
   public String renderAddReddit(Model model) {
     model.addAttribute("newReddit", new NewRedditDTO());
     return "submit";
   }
 
-  @PostMapping("/submit")
+  @PostMapping("/pub/submit")
   public String submitReddit(@ModelAttribute NewRedditDTO newRedditDTO) {
     Reddit savedReddit = redditService.save(newRedditDTO, LocalDateTime.now());
     return "redirect:/";
   }
 
-  @GetMapping("/{id}/delete")
+  @GetMapping("/pub/{id}/delete")
   public String delete(@PathVariable Long id) {
     redditService.delete(id);
     return "redirect:/";
