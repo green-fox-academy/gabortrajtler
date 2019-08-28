@@ -17,7 +17,7 @@ body {
     text-align: center;
 }
 
-div.table-title, .upper-buttons, .search {
+div.table-title, .upper-buttons, .search, .pagination {
     margin: auto;
     max-width: 850px;
     padding: 5px;
@@ -141,4 +141,29 @@ th.text-center {
 
 th.text-left {
   text-align: left;
+}
+
+/*** Pagination style **/
+.pagination ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+}
+
+.pagination li {
+    float: left;
+}
+
+.pagination li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+.pagination li a:hover {
+    background-color: #111111;
 }

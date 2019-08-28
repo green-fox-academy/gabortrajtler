@@ -4,8 +4,11 @@ import com.greenfox.tgabor.reddit.model.dtos.NewRedditDTO;
 import com.greenfox.tgabor.reddit.model.entity.Reddit;
 import com.greenfox.tgabor.reddit.repository.RedditRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -21,9 +24,20 @@ public class RedditServiceImpl implements RedditService {
 
   @Override
   public List<Reddit> findAll() {
-    List<Reddit> expiredReddits = redditRepository.findByExpirityDateIsLessThan(LocalDateTime.now());
-    redditRepository.deleteAll(expiredReddits);
+    deleteExpiredReddits();
     return redditRepository.findAllByOrderByVoteCountDesc();
+  }
+
+  @Override
+  public List<Reddit> findTop10() {
+    deleteExpiredReddits();
+    return redditRepository.findTop10ByOrderByVoteCountDesc();
+  }
+
+  @Override
+  public Page<Reddit> findAllPages(Integer pageIndex, Integer pageSize) {
+    deleteExpiredReddits();
+    return redditRepository.findAllByOrderByVoteCountDescCreationDateAsc(PageRequest.of(pageIndex, pageSize));
   }
 
   @Override
@@ -53,5 +67,10 @@ public class RedditServiceImpl implements RedditService {
       reddit.decrementVoteCount();
       redditRepository.save(reddit);
     }
+  }
+
+  private void deleteExpiredReddits() {
+    List<Reddit> expiredReddits = redditRepository.findByExpirityDateIsLessThan(LocalDateTime.now());
+    redditRepository.deleteAll(expiredReddits);
   }
 }

@@ -2,12 +2,15 @@ package com.greenfox.tgabor.reddit.services;
 
 import com.greenfox.tgabor.reddit.model.dtos.NewRedditDTO;
 import com.greenfox.tgabor.reddit.model.entity.Reddit;
+import org.springframework.data.domain.Page;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 public interface RedditService {
   List<Reddit> findAll();
+  List<Reddit> findTop10();
+  Page<Reddit> findAllPages(Integer pageIndex, Integer pageSize);
 
   Reddit save(NewRedditDTO newRedditDTO, LocalDateTime localDateTime);
 
