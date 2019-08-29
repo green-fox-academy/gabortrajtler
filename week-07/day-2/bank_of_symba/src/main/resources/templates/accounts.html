@@ -3,7 +3,7 @@
 <head>
     <title>Bank Of Symba - accounts</title>
     <link href="/styles.css" rel="stylesheet" type="text/css">
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
 </head>
 <body>
 <table class="table-fill">
@@ -22,15 +22,23 @@
         <td th:class="${account.kingStatus}? 'text-king' : 'text-left'" th:text="|${accountStat.index}|">
         <td th:class="${account.kingStatus}? 'text-king' : 'text-left'" th:text="|${account.name}|">
         <td th:class="${account.kingStatus}? 'text-king' : 'text-left'" th:text="|${account.animalType}|">
-        <td th:class="${account.kingStatus}? 'text-king' : 'text-left'" th:text="|${#numbers.formatDecimal(account.balance,1,2,'POINT')} Zibra|">
+        <td th:class="${account.kingStatus}? 'text-king' : 'text-left'"
+            th:text="|${#numbers.formatDecimal(account.balance,1,2,'POINT')} Zibra|">
         <td th:class="${account.kingStatus}? 'text-king' : 'text-left'" th:text="|${account.kingStatus}|">
         <td th:class="${account.kingStatus}? 'text-king' : 'text-left'" th:case="'good'" th:text="|Good One|">
         <td th:class="${account.kingStatus}? 'text-king' : 'text-left'" th:case="'bad'" th:text="|Bad Guy|">
     </tr>
     </tbody>
 </table>
-<form action="#" th:action="@{/raise-balance}" method="get">
-    <button type="submit">Raise Balance</button>
-</form>
+<div>
+    <form action="#" th:action="@{/raise-balance}" method="get">
+        <button type="submit">Raise Balance</button>
+    </form>
+</div>
+<div>
+    <form action="#" th:action="@{/add-account}" method="get">
+        <button type="submit">Add new account</button>
+    </form>
+</div>
 </body>
 </html>
