@@ -18,4 +18,5 @@ public interface RedditRepository extends CrudRepository<Reddit, Long> {
   List<Reddit> findTop10ByOrderByVoteCountDesc();
   List<Reddit> findByExpirityDateIsLessThan(LocalDateTime localDateTime);
   Page<Reddit> findAllByOrderByVoteCountDescCreationDateAsc(Pageable pageable);
+  Page<Reddit> findAllByUsernameOrderByVoteCountDescCreationDateAsc(String username, Pageable pageable);
 }

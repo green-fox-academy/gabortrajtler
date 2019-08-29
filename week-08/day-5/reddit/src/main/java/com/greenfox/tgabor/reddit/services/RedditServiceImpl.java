@@ -35,14 +35,14 @@ public class RedditServiceImpl implements RedditService {
   }
 
   @Override
-  public Page<Reddit> findAllPages(Integer pageIndex, Integer pageSize) {
+  public Page<Reddit> findAllPages(Integer pageIndex, Integer pageSize, String username) {
     deleteExpiredReddits();
-    return redditRepository.findAllByOrderByVoteCountDescCreationDateAsc(PageRequest.of(pageIndex, pageSize));
+    return redditRepository.findAllByUsernameOrderByVoteCountDescCreationDateAsc(username, PageRequest.of(pageIndex, pageSize));
   }
 
   @Override
-  public Reddit save(NewRedditDTO newRedditDTO, LocalDateTime creationDate) {
-    Reddit reddit = new Reddit(newRedditDTO.getTitle(), newRedditDTO.getUrl(), creationDate);
+  public Reddit save(NewRedditDTO newRedditDTO, String username, LocalDateTime creationDate) {
+    Reddit reddit = new Reddit(newRedditDTO.getTitle(), newRedditDTO.getUrl(), username, creationDate);
     return redditRepository.save(reddit);
   }
 

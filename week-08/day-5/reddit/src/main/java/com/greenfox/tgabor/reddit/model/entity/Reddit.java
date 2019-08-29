@@ -14,15 +14,17 @@ public class Reddit {
   private Long id;
   private String title;
   private String url;
+  private String username;
   private AtomicLong voteCount = new AtomicLong(0);
   private LocalDateTime creationDate;
   @Transient
   private final Duration validityDuration = Duration.ofMinutes(2);
   private LocalDateTime expirityDate;
 
-  public Reddit(String title, String url, LocalDateTime creationDate) {
+  public Reddit(String title, String url, String username, LocalDateTime creationDate) {
     this.title = title;
     this.url = url;
+    this.username = username;
     this.creationDate = creationDate;
     this.expirityDate = creationDate.plus(validityDuration);
   }
@@ -76,5 +78,13 @@ public class Reddit {
 
   public void setExpirityDate(LocalDateTime expirityDate) {
     this.expirityDate = expirityDate;
+  }
+
+  public String getUsername() {
+    return username;
+  }
+
+  public void setUsername(String username) {
+    this.username = username;
   }
 }

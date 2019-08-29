@@ -17,7 +17,7 @@ body {
     text-align: center;
 }
 
-div.table-title, .upper-buttons, .search, .pagination {
+div.table-title, .upper-buttons, .search, .listitems {
     margin: auto;
     max-width: 850px;
     padding: 5px;
@@ -144,7 +144,7 @@ th.text-left {
 }
 
 /*** Pagination style **/
-.pagination ul {
+.listitems ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -152,11 +152,11 @@ th.text-left {
     background-color: #333333;
 }
 
-.pagination li {
+.listitems li {
     float: left;
 }
 
-.pagination li a {
+.listitems li a {
     display: block;
     color: white;
     text-align: center;
@@ -164,6 +164,6 @@ th.text-left {
     text-decoration: none;
 }
 
-.pagination li a:hover {
+.listitems li a:hover {
     background-color: #111111;
 }

@@ -10,9 +10,9 @@ import java.util.List;
 public interface RedditService {
   List<Reddit> findAll();
   List<Reddit> findTop10();
-  Page<Reddit> findAllPages(Integer pageIndex, Integer pageSize);
+  Page<Reddit> findAllPages(Integer pageIndex, Integer pageSize, String username);
 
-  Reddit save(NewRedditDTO newRedditDTO, LocalDateTime localDateTime);
+  Reddit save(NewRedditDTO newRedditDTO, String username, LocalDateTime localDateTime);
 
   void delete(Long redditId);
   void voteUp(Long redditId);
