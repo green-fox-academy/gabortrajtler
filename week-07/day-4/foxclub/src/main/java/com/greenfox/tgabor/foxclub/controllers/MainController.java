@@ -29,11 +29,25 @@ public class MainController {
   @GetMapping("/")
   public String information(Model model, @RequestParam(value = "name", required = false) String foxName) {
     if (foxName == null) {
+      model.addAttribute("foxnotfound", false);
+      return "login";
+    } else if (foxName.equals("foxnotfound")) {
+      model.addAttribute("foxnotfound", true);
       return "login";
     } else {
-      Fox foxProfile = foxService.getFox(foxName);
-      model.addAttribute("foxProfile", foxService.getFox(foxName));
-      return "information";
+      try {
+        Fox foxProfile = foxService.getFox(foxName);
+        if (foxProfile == null) {
+          throw new FoxNotFoundException();
+        }
+        model.addAttribute("foxProfile", foxService.getFox(foxName));
+        model.addAttribute("foxnotfound", false);
+        return "information";
+      } catch (FoxNotFoundException exc) {   // foxProfile == null, with nicer error handling solution
+        return "redirect:/?name=foxnotfound";
+        /*throw new ResponseStatusException(
+                HttpStatus.NOT_FOUND, "Fox Not Found", exc);*/
+      }
     }
   }
 
@@ -71,32 +85,6 @@ public class MainController {
   public String addTrick(@ModelAttribute NewTrickDTO newTrick) {
     Trick savedTrick = trickService.saveTrick(newTrick);
     return "redirect:/addtrick";
-  }
-
-  @GetMapping("/addmoney")
-  public String renderAddMoney(Model model) {
-    model.addAttribute("newTrick", new NewTrickDTO());
-    model.addAttribute("tricks", trickService.listAllTricks());
-    return "add_money";
-  }
-
-  @PostMapping("/addmoney")
-  public String addMoney(@ModelAttribute NewTrickDTO newTrick) {
-    Trick savedTrick = trickService.saveTrick(newTrick);
-    return "redirect:/addmoney";
-  }
-
-  @GetMapping("/nicepictures")
-  public String renderNicepictures(Model model) {
-    model.addAttribute("newTrick", new NewTrickDTO());
-    model.addAttribute("tricks", trickService.listAllTricks());
-    return "nicepictures";
-  }
-
-  @PostMapping("/nicepictures")
-  public String nicepictures(@ModelAttribute NewTrickDTO newTrick) {
-    Trick savedTrick = trickService.saveTrick(newTrick);
-    return "redirect:/nicepictures";
   }
 
 }

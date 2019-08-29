@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Add Nutrition - Programmer Fox Club</title>
+</head>
+<body>
+<h2>Add Nutritions</h2>
+<div>
+    <form th:action="@{/addnutrition}" th:method="post">
+        <div>
+            <label for="food-name">Food: </label>
+            <input type="text" id="food-name" name="food-name">
+            <input type="submit" value="Add">
+        </div>
+    </form>
+    <form th:action="@{/addnutrition}" th:method="post">
+        <div>
+            <label for="drink-name">Drink: </label>
+            <input type="text" id="drink-name" name="drink-name">
+            <input type="submit" value="Add">
+        </div>
+    </form>
+</div>
+<br>
+</body>
+</html>

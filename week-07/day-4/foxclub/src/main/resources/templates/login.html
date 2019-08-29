@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Login - Programmer Fox Club</title>
+    <link href="/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<h2>Welcome to Programmer Fox CLub!</h2>
+<div class="table-title">
+    <h2>Welcome to Programmer Fox Club!</h2>
+</div>
+<p th:if="${foxnotfound}">Fox not found!</p>
 <p>Please provide a name, so you can associate it to your pet!</p>
 <div>
     <form th:action="@{/login}" th:method="post">
@@ -15,6 +19,19 @@
             <input type="submit" value="GO">
         </div>
     </form>
+</div>
+<div class="listitems">
+    <ul>
+        <li>
+            <a th:href="@{/addfox}">Create new Fox</a>
+        </li>
+        <li>
+            <a th:href="@{/addtrick}">New Tricks</a>
+        </li>
+        <li>
+            <a th:href="@{/addnutrition}">New Nutritions</a>
+        </li>
+    </ul>
 </div>
 </body>
 </html>

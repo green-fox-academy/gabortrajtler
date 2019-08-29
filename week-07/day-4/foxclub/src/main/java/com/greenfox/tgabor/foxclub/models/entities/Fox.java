@@ -14,7 +14,7 @@ public class Fox {
     private String food;
     private String drink;
     @OneToMany(fetch = FetchType.EAGER)
-    List<Trick> tricks;
+    private List<Trick> tricks;
 
     public Fox() {
         tricks = new ArrayList<>();

@@ -3,18 +3,24 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Programmer Fox Club</title>
+    <link href="/style.css" rel="stylesheet" type="text/css">
 </head>
 <body th:object="${foxProfile}">
-<ul>
-    <li>
-        <a href="#">Information</a>
-    </li>
-</ul>
+<div class="listitems">
+    <ul>
+        <li>
+            <a th:href="@{/(name=${foxProfile.name})}">Information</a>
+        </li>
+        <li>
+            <a th:href="@{/nutritionStore(name=${foxProfile.name})}">Nutrition Store</a>
+        </li>
+    </ul>
+</div>
 <img src="greenfox.png">
 <p th:text="|This is *{name}, currently living on *{food} and *{drink}. He knows *{tricks.size()} tricks.|"></p>
 <h2>Known tricks</h2>
 <ul th:each="foxTrick : *{tricks}">
-    <li th:text="${foxTrick.name}"/>
+    <li th:text="${foxTrick.name}"></li>
 </ul>
 </body>
 </html>
