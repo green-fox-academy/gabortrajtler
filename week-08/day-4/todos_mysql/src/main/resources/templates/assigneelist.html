@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Assignee list</title>
+    <link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="listitems">
+    <ul>
+        <li>
+            <a th:href="@{/}">TODO's</a>
+        </li>
+        <li th:if="${#httpServletRequest.requestURI == '/assignees'}">
+            <a th:href="@{/addAssignee}">Add new assignee</a>
+        </li>
+    </ul>
+</div>
+<div class="table-title">
+    <h2>Assignees:</h2>
+</div>
+<table class="table-fill">
+    <thead>
+    <tr>
+        <th class="text-center">Name</th>
+        <th class="text-center">Email</th>
+    </tr>
+    </thead>
+    <tbody class="table-hover">
+    <tr th:each="assignee: ${assignees}">
+        <td th:class="'text-left'" th:text="${assignee.name}">
+        <td th:class="'text-left'" th:text="${assignee.email}">
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

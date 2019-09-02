@@ -1,10 +1,15 @@
 package com.greenfox.tgabor.todos_mysql.model.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 public class Todo {
   @Id
   @GeneratedValue
@@ -13,9 +18,8 @@ public class Todo {
   private String description;
   private Boolean urgent = false;
   private Boolean done = false;
-
-  public Todo() {
-  }
+  @ManyToOne(cascade = CascadeType.ALL)
+  private Assignee assignee;
 
   public Todo(String title, String description) {
     this.title = title;
@@ -26,42 +30,6 @@ public class Todo {
     this.title = title;
     this.urgent = urgent;
     this.done = done;
-    this.description = description;
-  }
-
-  public Long getId() {
-    return id;
-  }
-
-  public String getTitle() {
-    return title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public Boolean getUrgent() {
-    return urgent;
-  }
-
-  public void setUrgent(Boolean urgent) {
-    this.urgent = urgent;
-  }
-
-  public Boolean getDone() {
-    return done;
-  }
-
-  public void setDone(Boolean done) {
-    this.done = done;
-  }
-
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
     this.description = description;
   }
 }

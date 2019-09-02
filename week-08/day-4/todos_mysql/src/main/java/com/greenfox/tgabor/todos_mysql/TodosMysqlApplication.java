@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class TodosMysqlApplication implements CommandLineRunner {
 
-  TodoRepository todoRepository;
+  private TodoRepository todoRepository;
 
   @Autowired
   public TodosMysqlApplication(TodoRepository todoRepository) {

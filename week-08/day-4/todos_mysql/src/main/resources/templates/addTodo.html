@@ -10,7 +10,7 @@
     <h2>Add new todo:</h2>
 </div>
 <div class="upper-buttons">
-    <form th:action="@{/add}" th:method="post" th:object="${newTodo}">
+    <form th:action="@{/addTodo}" th:method="post" th:object="${newTodo}">
         <div>
             <label for="todo-name">Label:</label>
             <input type="text" id="todo-name" name="todo-name" th:field="*{title}">

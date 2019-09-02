@@ -1,5 +1,6 @@
 package com.greenfox.tgabor.todos_mysql.controllers;
 
+import com.greenfox.tgabor.todos_mysql.model.dtos.NewAssigneeDTO;
 import com.greenfox.tgabor.todos_mysql.model.dtos.NewTodoDTO;
 import com.greenfox.tgabor.todos_mysql.model.entity.Todo;
 import com.greenfox.tgabor.todos_mysql.repository.TodoRepository;
@@ -31,13 +32,13 @@ public class TodoController {
     return "todolist";
   }
 
-  @GetMapping("/add")
+  @GetMapping("/addTodo")
   public String renderAddTodo(Model model) {
     model.addAttribute("newTodo", new NewTodoDTO());
-    return "add";
+    return "addTodo";
   }
 
-  @PostMapping("/add")
+  @PostMapping("/addTodo")
   public String addTodo(@ModelAttribute NewTodoDTO newTodoDTO) {
     Todo savedTodo = todoService.save(newTodoDTO);
     return "redirect:/";
