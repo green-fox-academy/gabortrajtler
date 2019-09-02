@@ -32,8 +32,13 @@ public class TodoServiceImpl implements TodoService {
   }
 
   @Override
+  public List<Todo> findAllByTitleOrDescriptionContains(String searchText) {
+    return todoRepository.findAllByTitleIgnoreCaseContainsOrDescriptionIgnoreCaseContains(searchText, searchText);
+  }
+
+  @Override
   public Todo save(NewTodoDTO newTodoDTO) {
-    Todo todo = new Todo(newTodoDTO.getTitle());
+    Todo todo = new Todo(newTodoDTO.getTitle(), newTodoDTO.getDescription());
     return todoRepository.save(todo);
   }
 

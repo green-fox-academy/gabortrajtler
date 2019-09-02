@@ -10,6 +10,7 @@ public interface TodoRepository extends CrudRepository<Todo, Long> {
 
   List<Todo> findAllByUrgent(Boolean urgent);
   List<Todo> findAllByDone(Boolean done);
+  List<Todo> findAllByTitleIgnoreCaseContainsOrDescriptionIgnoreCaseContains(String title, String description);
 
   @Override
   List<Todo> findAll();

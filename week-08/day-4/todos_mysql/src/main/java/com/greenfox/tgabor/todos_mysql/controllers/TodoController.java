@@ -43,6 +43,13 @@ public class TodoController {
     return "redirect:/";
   }
 
+  @PostMapping("/search")
+  public String search(@RequestParam("searchtext") String searchText,
+                       Model model) {
+    model.addAttribute("todos", todoService.findAllByTitleOrDescriptionContains(searchText));
+    return "todolist";
+  }
+
   @GetMapping("/{id}/delete")
   public String delete(@PathVariable Long id) {
     todoService.delete(id);

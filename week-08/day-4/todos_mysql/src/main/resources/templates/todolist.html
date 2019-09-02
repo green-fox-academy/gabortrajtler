@@ -6,17 +6,35 @@
     <link href="/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+<div class="listitems">
+    <ul>
+        <li>
+            <a th:href="@{/}">TODO's</a>
+        </li>
+        <li>
+            <a th:href="@{/add}">Add new todo</a>
+        </li>
+        <li>
+            <a th:href="@{/assignees}">List of Assignees</a>
+        </li>
+    </ul>
+</div>
 <div class="table-title">
     <h2>Todos for today:</h2>
 </div>
-<div class="upper-buttons">
-    <a th:href="@{/add}">Add new todo</a>
+<div class="search">
+    <form class="search-container" th:action="@{/search}" th:method="post">
+        <label for="searchtext" class="texts">Search for:</label>
+        <p><input type="text" name="searchtext" id="searchtext" required="true" placeholder="...in title and description">
+            <input type="submit" name="searchbutton" id="searchbutton" value="Search"></p>
+    </form>
 </div>
 <table class="table-fill">
     <thead>
     <tr>
         <th class="text-center">Id</th>
         <th class="text-center">Action</th>
+        <th class="text-center">Description</th>
         <th class="text-center">Done</th>
         <th class="text-center">Urgent</th>
         <th class="text-center"></th>
@@ -26,6 +44,7 @@
     <tr th:each="todo: ${todos}">
         <td th:class="'text-left'" th:text="${todo.id}">
         <td th:class="'text-left'" th:text="${todo.title}">
+        <td th:class="'text-left'" th:text="${todo.description}">
         <td th:class="'text-left'" th:text="${todo.done}">
         <td th:class="'text-left'" th:text="${todo.urgent}">
         <td th:class="'text-left'"><a th:href="@{${todo.id} + '/delete'}">delete</a></td>

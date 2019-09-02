@@ -6,22 +6,27 @@ import javax.persistence.Id;
 
 @Entity
 public class Todo {
-  @Id @GeneratedValue
+  @Id
+  @GeneratedValue
   private Long id;
   private String title;
+  private String description;
   private Boolean urgent = false;
   private Boolean done = false;
 
-  public Todo() {}
-
-  public Todo(String title) {
-    this.title = title;
+  public Todo() {
   }
 
-  public Todo(String title, Boolean urgent, Boolean done) {
+  public Todo(String title, String description) {
+    this.title = title;
+    this.description = description;
+  }
+
+  public Todo(String title, String description, Boolean urgent, Boolean done) {
     this.title = title;
     this.urgent = urgent;
     this.done = done;
+    this.description = description;
   }
 
   public Long getId() {
@@ -50,5 +55,13 @@ public class Todo {
 
   public void setDone(Boolean done) {
     this.done = done;
+  }
+
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 }

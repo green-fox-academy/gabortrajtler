@@ -17,7 +17,7 @@ body {
     border-bottom: medium solid #1fbcd2;
 }
 
-div.table-title, .upper-buttons, .search {
+div.table-title, .upper-buttons, .search, .listitems {
     margin: auto;
     max-width: 850px;
     padding: 5px;
@@ -141,4 +141,29 @@ th.text-center {
 
 th.text-left {
   text-align: left;
+}
+
+/*** List items style **/
+.listitems ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+}
+
+.listitems li {
+    float: left;
+}
+
+.listitems li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+.listitems li a:hover {
+    background-color: #111111;
 }

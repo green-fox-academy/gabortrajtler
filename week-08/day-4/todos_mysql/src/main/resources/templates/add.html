@@ -12,7 +12,12 @@
 <div class="upper-buttons">
     <form th:action="@{/add}" th:method="post" th:object="${newTodo}">
         <div>
+            <label for="todo-name">Label:</label>
             <input type="text" id="todo-name" name="todo-name" th:field="*{title}">
+        </div>
+        <div>
+            <label for="todo-description">Descr:</label>
+            <input type="text" id="todo-description" name="todo-description" th:field="*{description}">
         </div>
         <div>
             <input type="submit" value="Submit">

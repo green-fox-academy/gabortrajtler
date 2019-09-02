@@ -9,6 +9,7 @@ public interface TodoService {
   List<Todo> findAllByUrgent(Boolean urgent);
   List<Todo> findAllByDone(Boolean done);
   List<Todo> findAll();
+  List<Todo> findAllByTitleOrDescriptionContains(String searchText);
 
   Todo save(NewTodoDTO newTodoDTO);
 
