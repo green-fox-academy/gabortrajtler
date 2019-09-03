@@ -7,10 +7,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Error {
-  private String error;
+public class Greeter {
+  private String welcome_message;
 
-  public Error(String error) {
-    this.error = error;
+  public Greeter(String welcome_message) {
+    this.welcome_message = welcome_message;
   }
 }
