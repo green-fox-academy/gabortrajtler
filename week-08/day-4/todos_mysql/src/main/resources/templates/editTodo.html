@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Edit todo</title>
+    <link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="table-title">
+    <h2>Edit todo:</h2>
+</div>
+<div class="upper-buttons">
+    <form th:action="@{/editTodo}" th:method="post" th:object="${todo}">
+        <div>
+            <label for="todo-name">Label:</label>
+            <input type="text" id="todo-name" name="todo-name" th:field="*{title}">
+        </div>
+        <div>
+            <label for="todo-description">Descr:</label>
+            <input type="text" id="todo-description" name="todo-description" th:field="*{description}">
+        </div>
+        <div>
+            <label for="todo-done">Done:</label>
+            <input type="checkbox" id="todo-done" name="todo-done" th:field="*{done}">
+        </div>
+        <div>
+            <label for="todo-urgent">Urgent:</label>
+            <input type="checkbox" id="todo-urgent" name="todo-urgent" th:field="*{urgent}">
+        </div>
+        <div>
+        <label for="assigneeId">Assignee:</label>
+        <select id="assigneeId" name="assigneeId">
+            <option th:each="assignee : ${assignees}" th:value="${assignee.id}" th:text="${assignee.name}"></option>
+        </select>
+        </div>
+        <div>
+            <input type="hidden" id="todo-id" name="todo-id" th:field="*{id}">
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</div>
+</body>
+</html>

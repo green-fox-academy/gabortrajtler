@@ -43,7 +43,7 @@
     </thead>
     <tbody class="table-hover">
     <tr th:each="todo: ${todos}">
-        <td th:class="'text-left'" th:text="${todo.id}">
+        <td th:class="'text-left'"><a th:href="@{${todo.id} + '/editTodo'}" th:text="${todo.id}">edit_placeholder</a></td>
         <td th:class="'text-left'" th:text="${todo.title}">
         <td th:class="'text-left'" th:text="${todo.description}">
         <td th:class="'text-left'" th:text="${todo.done}">

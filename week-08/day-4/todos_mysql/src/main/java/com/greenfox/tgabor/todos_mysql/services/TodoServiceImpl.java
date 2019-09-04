@@ -1,5 +1,6 @@
 package com.greenfox.tgabor.todos_mysql.services;
 
+import com.greenfox.tgabor.todos_mysql.model.dtos.EditTodoDTO;
 import com.greenfox.tgabor.todos_mysql.model.dtos.NewTodoDTO;
 import com.greenfox.tgabor.todos_mysql.model.entity.Assignee;
 import com.greenfox.tgabor.todos_mysql.model.entity.Todo;
@@ -52,10 +53,31 @@ public class TodoServiceImpl implements TodoService {
   }
 
   @Override
+  public Todo findById(Long id) throws Exception {
+    if (todoRepository.findById(id).isPresent()) {
+      return todoRepository.findById(id).get();
+    } else {
+      throw (new Exception("Missing or wrong todo ID!"));
+    }
+  }
+
+  @Override
   public Todo save(NewTodoDTO newTodoDTO) throws Exception {
       Assignee assignee = assigneeService.findById(newTodoDTO.getAssigneeId());
       Todo todo = new Todo(newTodoDTO.getTitle(), newTodoDTO.getDescription(), assignee);
       return todoRepository.save(todo);
+  }
+
+  @Override
+  public Todo update(EditTodoDTO editTodoDTO) throws Exception {
+    Todo updateTodo = findById(editTodoDTO.getId());
+    Assignee assignee = assigneeService.findById(editTodoDTO.getAssigneeId());
+    updateTodo.setAssignee(assignee);
+    updateTodo.setDescription(editTodoDTO.getDescription());
+    updateTodo.setDone(editTodoDTO.getDone());
+    updateTodo.setUrgent(editTodoDTO.getUrgent());
+    updateTodo.setTitle(editTodoDTO.getTitle());
+    return todoRepository.save(updateTodo);
   }
 
   @Override

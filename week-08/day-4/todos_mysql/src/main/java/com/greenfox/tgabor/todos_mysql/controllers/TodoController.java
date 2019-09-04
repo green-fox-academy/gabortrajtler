@@ -1,5 +1,6 @@
 package com.greenfox.tgabor.todos_mysql.controllers;
 
+import com.greenfox.tgabor.todos_mysql.model.dtos.EditTodoDTO;
 import com.greenfox.tgabor.todos_mysql.model.dtos.NewTodoDTO;
 import com.greenfox.tgabor.todos_mysql.model.entity.Todo;
 import com.greenfox.tgabor.todos_mysql.services.AssigneeService;
@@ -64,6 +65,29 @@ public class TodoController {
                        Model model) {
     model.addAttribute("todos", todoService.findAllByTitleOrDescriptionContains(searchText));
     return "todolist";
+  }
+
+  @GetMapping("/{id}/editTodo")
+  public String renderEditTodo(@PathVariable Long id,
+                                   Model model) {
+    try {
+      model.addAttribute("todo", todoService.findById(id));
+      model.addAttribute("assignees", assigneeService.findAll());
+      return "editTodo";
+    } catch (Exception e) {
+      return "redirect:/";
+    }
+  }
+
+  @PostMapping("/editTodo")
+  public String editTodo(@ModelAttribute EditTodoDTO editTodoDTO) {
+    try {
+      todoService.update(editTodoDTO);
+      return "redirect:/";
+    } catch (Exception e) {
+      System.out.println(e);
+      return "redirect:/";
+    }
   }
 
   @GetMapping("/{id}/deleteTodo")
