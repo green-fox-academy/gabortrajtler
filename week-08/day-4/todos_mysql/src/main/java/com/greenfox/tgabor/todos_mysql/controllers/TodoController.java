@@ -1,9 +1,7 @@
 package com.greenfox.tgabor.todos_mysql.controllers;
 
-import com.greenfox.tgabor.todos_mysql.model.dtos.NewAssigneeDTO;
 import com.greenfox.tgabor.todos_mysql.model.dtos.NewTodoDTO;
 import com.greenfox.tgabor.todos_mysql.model.entity.Todo;
-import com.greenfox.tgabor.todos_mysql.repository.TodoRepository;
 import com.greenfox.tgabor.todos_mysql.services.AssigneeService;
 import com.greenfox.tgabor.todos_mysql.services.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,14 +23,26 @@ public class TodoController {
 
   @RequestMapping("")
   public String list(Model model,
-                     @RequestParam(value = "isActive", required = false) Boolean isActive) {
-    if (isActive == null) {
-      model.addAttribute("todos", todoService.findAll());
-    } else if (isActive) {
-      model.addAttribute("todos", todoService.findAllByDone(false));
-    } else if (!isActive) {
-      model.addAttribute("todos", todoService.findAllByDone(true));
+                     @RequestParam(value = "isActive", required = false) Boolean isActive,
+                     @RequestParam(value = "assignee", required = false) Long assigneeId) throws Exception {
+    if (assigneeId == null) {
+      if (isActive == null) {
+        model.addAttribute("todos", todoService.findAll());
+      } else if (isActive) {
+        model.addAttribute("todos", todoService.findAllByDone(false));
+      } else {
+        model.addAttribute("todos", todoService.findAllByDone(true));
+      }
+    } else {
+      if (isActive == null) {
+        model.addAttribute("todos", todoService.findByAssignee(assigneeService.findById(assigneeId)));
+      } else if (isActive) {
+        model.addAttribute("todos", todoService.findByAssigneeAndDone(assigneeService.findById(assigneeId), false));
+      } else {
+        model.addAttribute("todos", todoService.findByAssigneeAndDone(assigneeService.findById(assigneeId),true));
+      }
     }
+
     return "todolist";
   }
 

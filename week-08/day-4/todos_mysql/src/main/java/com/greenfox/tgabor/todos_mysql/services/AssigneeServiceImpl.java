@@ -29,7 +29,7 @@ public class AssigneeServiceImpl implements AssigneeService {
     if (assigneeRepository.findById(id).isPresent()) {
       return assigneeRepository.findById(id).get();
     } else {
-      throw(new Exception("Missing usr ID!"));
+      throw(new Exception("Missing or wrong user ID!"));
     }
   }
 

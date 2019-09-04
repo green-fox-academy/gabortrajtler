@@ -49,7 +49,8 @@
         <td th:class="'text-left'" th:text="${todo.done}">
         <td th:class="'text-left'" th:text="${todo.urgent}">
         <td th:class="'text-left'"><a th:href="@{${todo.id} + '/deleteTodo'}">delete</a></td>
-        <td th:class="'text-left'" th:text="${todo.assignee != null} ? ${todo.assignee.name} : 'null'">
+        <td th:if="${todo.assignee != null}" th:class="'text-left'"><a th:href="@{/(assignee=${todo.assignee.id})}" th:text="${todo.assignee.name}">details_placeholder</a></td>
+        <td th:unless="${todo.assignee != null}" th:class="'text-left'"><a th:href="@{#}" th:text="'null'">details_placeholder</a></td>
     </tr>
     </tbody>
 </table>
