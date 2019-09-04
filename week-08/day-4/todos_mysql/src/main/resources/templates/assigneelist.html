@@ -28,8 +28,9 @@
     </thead>
     <tbody class="table-hover">
     <tr th:each="assignee: ${assignees}">
-        <td th:class="'text-left'" th:text="${assignee.name}">
+        <td th:class="'text-left'"><a th:text="${assignee.name}" th:href="@{${assignee.id} + '/editAssignee'}">edit_placeholder</a></td>
         <td th:class="'text-left'" th:text="${assignee.email}">
+        <td th:class="'text-left'"><a th:href="@{${assignee.id} + '/deleteAssignee'}">delete</a></td>
     </tr>
     </tbody>
 </table>

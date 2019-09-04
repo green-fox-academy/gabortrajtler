@@ -44,7 +44,7 @@ public class TodoController {
   }
 
   @PostMapping("/addTodo")
-  public String addTodo(@ModelAttribute NewTodoDTO newTodoDTO) {
+  public String addTodo(@ModelAttribute NewTodoDTO newTodoDTO) throws Exception {
     Todo savedTodo = todoService.save(newTodoDTO);
     return "redirect:/";
   }
@@ -56,7 +56,7 @@ public class TodoController {
     return "todolist";
   }
 
-  @GetMapping("/{id}/delete")
+  @GetMapping("/{id}/deleteTodo")
   public String delete(@PathVariable Long id) {
     todoService.delete(id);
     return "redirect:/";

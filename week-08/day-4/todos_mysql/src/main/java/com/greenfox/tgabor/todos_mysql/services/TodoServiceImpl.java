@@ -13,13 +13,13 @@ import java.util.List;
 @Service
 public class TodoServiceImpl implements TodoService {
 
-  TodoRepository todoRepository;
-  AssigneeRepository assigneeRepository;
+  private TodoRepository todoRepository;
+  private AssigneeService assigneeService;
 
   @Autowired
-  public TodoServiceImpl(TodoRepository todoRepository, AssigneeRepository assigneeRepository) {
+  public TodoServiceImpl(TodoRepository todoRepository, AssigneeService assigneeService) {
     this.todoRepository = todoRepository;
-    this.assigneeRepository = assigneeRepository;
+    this.assigneeService = assigneeService;
   }
 
   @Override
@@ -43,15 +43,10 @@ public class TodoServiceImpl implements TodoService {
   }
 
   @Override
-  public Todo save(NewTodoDTO newTodoDTO) {
-    if (assigneeRepository.findById(newTodoDTO.getAssigneeId()).isPresent()) {
-      Assignee assignee = assigneeRepository.findById(newTodoDTO.getAssigneeId()).get();
+  public Todo save(NewTodoDTO newTodoDTO) throws Exception {
+      Assignee assignee = assigneeService.findById(newTodoDTO.getAssigneeId());
       Todo todo = new Todo(newTodoDTO.getTitle(), newTodoDTO.getDescription(), assignee);
       return todoRepository.save(todo);
-    } else {
-      Todo todo = new Todo(newTodoDTO.getTitle(), newTodoDTO.getDescription(), new Assignee("n/a", "n/a"));
-      return todoRepository.save(todo);
-    }
   }
 
   @Override

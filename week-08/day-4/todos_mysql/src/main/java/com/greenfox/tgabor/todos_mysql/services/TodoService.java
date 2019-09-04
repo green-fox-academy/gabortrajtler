@@ -11,7 +11,7 @@ public interface TodoService {
   List<Todo> findAll();
   List<Todo> findAllByTitleOrDescriptionContains(String searchText);
 
-  Todo save(NewTodoDTO newTodoDTO);
+  Todo save(NewTodoDTO newTodoDTO) throws Exception;
 
   void delete(Long todoId);
 }
