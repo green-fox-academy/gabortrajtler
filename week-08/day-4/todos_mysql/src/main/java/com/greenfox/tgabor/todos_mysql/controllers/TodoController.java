@@ -4,6 +4,7 @@ import com.greenfox.tgabor.todos_mysql.model.dtos.NewAssigneeDTO;
 import com.greenfox.tgabor.todos_mysql.model.dtos.NewTodoDTO;
 import com.greenfox.tgabor.todos_mysql.model.entity.Todo;
 import com.greenfox.tgabor.todos_mysql.repository.TodoRepository;
+import com.greenfox.tgabor.todos_mysql.services.AssigneeService;
 import com.greenfox.tgabor.todos_mysql.services.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,9 +15,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping({"/", "/todo"})
 public class TodoController {
   private TodoService todoService;
+  private AssigneeService assigneeService;
 
-  public TodoController(TodoService todoService) {
+  @Autowired
+  public TodoController(TodoService todoService, AssigneeService assigneeService) {
     this.todoService = todoService;
+    this.assigneeService = assigneeService;
   }
 
   @RequestMapping("")
@@ -35,6 +39,7 @@ public class TodoController {
   @GetMapping("/addTodo")
   public String renderAddTodo(Model model) {
     model.addAttribute("newTodo", new NewTodoDTO());
+    model.addAttribute("assignees", assigneeService.findAll());
     return "addTodo";
   }
 

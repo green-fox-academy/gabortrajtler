@@ -17,7 +17,7 @@ public class Assignee {
   private Long id;
   private String name;
   private String email;
-  @OneToMany(cascade = CascadeType.ALL)
+  @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
   @JoinColumn(name="assignee_id")
   private List<Todo> todoList;
 

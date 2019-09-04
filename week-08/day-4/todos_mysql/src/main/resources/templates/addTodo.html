@@ -20,6 +20,12 @@
             <input type="text" id="todo-description" name="todo-description" th:field="*{description}">
         </div>
         <div>
+        <label for="assignee">Assignee:</label>
+        <select id="assignee" name="assignee" th:field="*{assigneeId}">
+            <option th:each="assignee : ${assignees}" th:value="${assignee.id}" th:text="${assignee.name}"></option>
+        </select>
+        </div>
+        <div>
             <input type="submit" value="Submit">
         </div>
     </form>
