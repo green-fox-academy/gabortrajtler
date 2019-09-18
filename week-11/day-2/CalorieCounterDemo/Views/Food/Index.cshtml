@@ -1,0 +1,41 @@
+﻿@model List<CalorieCounterDemo.Models.Food>
+
+<h1>Calorie Counter</h1>
+
+<p>Hello from my view!</p>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Amount</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var food in Model)
+    {
+        <tr>
+            <td>@food.Name</td>
+            <td>@food.Amount</td>
+            <td>
+                <form action="/Food/Delete?id=@food.FoodId" method="post">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+
+<h2>Add new food</h2>
+
+<form action="/Food/Add" method="post">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" name="name" value="" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="amount">Amount</label>
+        <input type="text" name="amount" value="" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>
+
