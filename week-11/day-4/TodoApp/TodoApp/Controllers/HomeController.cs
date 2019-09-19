@@ -22,6 +22,5 @@ namespace TodoApp.Controllers
             List<Todo> todos = applicationContext.Todos.ToList();
             return View(todos);
         }
-
     }
 }

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using TodoApp.Services;
 
 namespace TodoApp
 {
@@ -25,6 +26,8 @@ namespace TodoApp
         {
             services.AddDbContext<ApplicationContext>(builder =>
                 builder.UseMySql(configuration.GetConnectionString("DefaultConnection")));
+            services.AddTransient<ITodoService, TodoService>();
+            services.AddTransient<IAssigneeService, AssigneeService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

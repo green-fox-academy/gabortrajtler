@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Todo App";
+    ViewData["Title"] = "Todo App - Home";
 }
 @model List<Todo>
 
@@ -11,6 +11,7 @@
     <tr>
         <th>Title</th>
         <th>Description</th>
+        <th>Assignee id</th>
         <th>Action</th>
     </tr>
     @foreach (var todo in Model)
@@ -18,6 +19,7 @@
         <tr>
             <td>@todo.Title</td>
             <td>@todo.Description</td>
+            <td>@todo.AssigneeId</td>
             <td>
                 <form action="/Todo/Delete?id=@todo.TodoId" method="post">
                     <button type="submit" class="btn btn-danger">Delete</button>
@@ -26,18 +28,3 @@
         </tr>
     }
 </table>
-
-<h2>Add new todo</h2>
-
-<form action="/Todo/Add" method="post">
-    <div class="form-group">
-        <label for="title">Title</label>
-        <input type="text" name="title" value="" class="form-control" />
-    </div>
-
-    <div class="form-group">
-        <label for="description">Description</label>
-        <input type="text" name="description" value="" class="form-control" />
-    </div>
-    <button type="submit" class="btn btn-primary">Add</button>
-</form>
