@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Todo App - Add Assignee";
+}
+
+<h2>Add Assignee</h2>
+
+<form action="/Assignee/Add" method="post">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" name="name" value="" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" name="email" value="" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>

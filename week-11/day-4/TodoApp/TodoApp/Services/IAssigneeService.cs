@@ -11,5 +11,6 @@ namespace TodoApp.Services
     {
         void AddAssignee(AddAssigneeDTO addAssigneeDTO);
         List<Assignee> FindAssignees { get; }
+        void DeleteAssignee(long id);
     }
 }

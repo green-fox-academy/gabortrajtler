@@ -11,7 +11,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <None Include="wwwroot\js\bootstrap.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Assignee\Add.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
   </ItemGroup>
 
 </Project>

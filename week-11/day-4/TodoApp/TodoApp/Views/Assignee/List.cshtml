@@ -1,0 +1,25 @@
+﻿@model List<Assignee>
+
+<h2>Assignees</h2>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Assignee id</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var assignee in Model)
+    {
+        <tr>
+            <td>@assignee.Name</td>
+            <td>@assignee.Email</td>
+            <td>@assignee.AssigneeId</td>
+            <td>
+                <form action="/Assignee/Delete?id=@assignee.AssigneeId" method="post">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>

@@ -28,5 +28,16 @@ namespace TodoApp.Services
         }
 
         public List<Assignee> FindAssignees => appContext.Assignees.ToList();
+
+        public void DeleteAssignee(long id)
+        {
+            var assignee = appContext.Assignees.SingleOrDefault(t => t.AssigneeId == id);
+            if (assignee == null)
+            {
+                throw new Exception("cannot find assignee");
+            }
+            appContext.Assignees.Remove(assignee);
+            appContext.SaveChanges();
+        }
     }
 }
