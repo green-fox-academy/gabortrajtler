@@ -39,5 +39,7 @@ namespace TodoApp.Services
             appContext.Todos.Remove(todo);
             appContext.SaveChanges();
         }
+
+        public List<Todo> FindTodos() => appContext.Todos.ToList();
     }
 }

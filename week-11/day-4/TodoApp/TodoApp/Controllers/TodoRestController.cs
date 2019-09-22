@@ -8,21 +8,21 @@ using TodoApp.Services;
 
 namespace TodoApp.Controllers
 {
-    public class HomeController : Controller
+    [Route("api")]
+    public class TodoRestController : Controller
     {
-
         private readonly ITodoService todoService;
 
-        public HomeController(ITodoService todoService)
+        public TodoRestController(ITodoService todoService)
         {
             this.todoService = todoService;
         }
 
-        [HttpGet("/")]
-        public IActionResult Index()
+        [HttpGet("todo/readAll")]
+        public List<Todo> ReadAll()
         {
             var todos = todoService.FindTodos();
-            return View(todos);
+            return todos;
         }
     }
 }
