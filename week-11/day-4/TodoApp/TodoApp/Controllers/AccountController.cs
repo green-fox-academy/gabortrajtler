@@ -19,6 +19,7 @@ namespace TodoApp.Controllers
             SignInMgr = signInMgr;
         }
 
+        [HttpGet("/register")]
         public async Task<IActionResult> Register()
         {
             try
@@ -45,6 +46,7 @@ namespace TodoApp.Controllers
             return View();
         }
 
+        [HttpGet("/login")]
         public async Task<IActionResult> Login()
         {
             var result = await SignInMgr.PasswordSignInAsync("testUser", "Test_123", false, false);
@@ -59,6 +61,7 @@ namespace TodoApp.Controllers
             return View();
         }
 
+        [HttpGet("/logout")]
         public async Task<IActionResult> Logout()
         {
             await SignInMgr.SignOutAsync();
