@@ -28,6 +28,7 @@ namespace TodoApp
             services.AddIdentity<AppUser, AppRole>(options =>
             {
                 options.User.RequireUniqueEmail = true;
+                options.Password.RequireNonAlphanumeric = false;
             }).AddEntityFrameworkStores<ApplicationContext>();
 
             services.AddDbContext<ApplicationContext>(builder =>

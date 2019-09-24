@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using TodoApp.Models.Identity;
+using TodoApp.ViewModels;
 
 namespace TodoApp.Controllers
 {
@@ -19,51 +20,64 @@ namespace TodoApp.Controllers
             SignInMgr = signInMgr;
         }
 
-        [HttpGet("/register")]
-        public async Task<IActionResult> Register()
+        [HttpGet("Account/Register")]
+        public IActionResult Register()
         {
-/*            try
+            return View();
+        }
+
+        [HttpPost("Account/Register")]
+        public async Task<IActionResult> Register(LoginViewModel registerViewModel)
+        {
+            if (ModelState.IsValid)
             {
-                ViewBag.Message = "User already registered";
-
-                AppUser user = await UserMgr.FindByNameAsync("TestUser");
-                if (user == null)
+                var user = new AppUser
                 {
-                    user = new AppUser
-                    {
-                        UserName = "testUser",
-                        Email = "TestUser@test.com",
-                        FirstName = "John",
-                        LastName = "Doe"
-                    };
+                    UserName = registerViewModel.Email,
+                    Email = registerViewModel.Email
+                };
 
-                    IdentityResult result = await UserMgr.CreateAsync(user, "Test_123");
-                    ViewBag.Message = "User was created";
+                var result = await UserMgr.CreateAsync(user, registerViewModel.Password);
+
+                if (result.Succeeded)
+                {
+                    await SignInMgr.SignInAsync(user, isPersistent: false);
+                    return RedirectToAction("Index", "Home");
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
                 }
             }
-            catch (Exception ex)
-            {
-                ViewBag.Message = ex.Message;
-            }*/
-            return View();
+            return View(registerViewModel);
         }
 
-        [HttpGet("/login")]
-        public async Task<IActionResult> Login()
+        [HttpGet("Account/Login")]
+        public IActionResult Login()
         {
-            var result = await SignInMgr.PasswordSignInAsync("testUser", "Test_123", false, false);
-            if (result.Succeeded)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-            else
-            {
-                ViewBag.Result = "result is: " + result.ToString();
-            }
             return View();
         }
 
-        [HttpGet("/logout")]
+        [HttpPost("Account/Login")]
+        public async Task<IActionResult> Login(LoginViewModel loginViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await SignInMgr.PasswordSignInAsync(loginViewModel.Email, loginViewModel.Password, 
+                    loginViewModel.Manager, false);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+
+                ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
+            }
+            return View(loginViewModel);
+        }
+
+        [HttpPost("Account/Logout")]
         public async Task<IActionResult> Logout()
         {
             await SignInMgr.SignOutAsync();

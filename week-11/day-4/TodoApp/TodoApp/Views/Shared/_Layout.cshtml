@@ -43,9 +43,14 @@
 
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <li>
-                                <a asp-controller="Account" asp-action="Logout">@User.Identity.Name, Logout</a>
-                            </li>
+                        <li>
+                            <form method="post" asp-controller="Account" asp-action="Logout">
+                                <button type="submit" style="width:auto"
+                                        class="nav-link btn btn-link py-0">
+                                    @User.Identity.Name, Logout
+                                </button>
+                            </form>
+                        </li>
                         }
                         else
                         {
@@ -53,7 +58,7 @@
                                 <a asp-controller="Account" asp-action="Login">Login</a>
                             </li>
                             <li>
-                                <a asp-controller="Account" asp-action="Register">Register</a>
+                                <a asp-controller="Account" asp-action="Register">Sign Up</a>
                             </li>
                         }
                     </ul>

@@ -8,7 +8,6 @@ namespace TodoApp.Models.Identity
 {
     public class AppUser : IdentityUser<int>
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        // TODO: Add public List<Restaurants> OwnedRestaurants { get; set; }
     }
 }
