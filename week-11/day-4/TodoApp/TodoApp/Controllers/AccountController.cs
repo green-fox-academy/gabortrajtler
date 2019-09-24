@@ -22,18 +22,20 @@ namespace TodoApp.Controllers
         [HttpGet("/register")]
         public async Task<IActionResult> Register()
         {
-            try
+/*            try
             {
                 ViewBag.Message = "User already registered";
 
                 AppUser user = await UserMgr.FindByNameAsync("TestUser");
                 if (user == null)
                 {
-                    user = new AppUser();
-                    user.UserName = "testUser";
-                    user.Email = "TestUser@test.com";
-                    user.FirstName = "John";
-                    user.LastName = "Doe";
+                    user = new AppUser
+                    {
+                        UserName = "testUser",
+                        Email = "TestUser@test.com",
+                        FirstName = "John",
+                        LastName = "Doe"
+                    };
 
                     IdentityResult result = await UserMgr.CreateAsync(user, "Test_123");
                     ViewBag.Message = "User was created";
@@ -42,7 +44,7 @@ namespace TodoApp.Controllers
             catch (Exception ex)
             {
                 ViewBag.Message = ex.Message;
-            }
+            }*/
             return View();
         }
 
