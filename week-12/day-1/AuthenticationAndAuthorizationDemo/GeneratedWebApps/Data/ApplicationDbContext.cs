@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using GeneratedWebApps.Models;
 
 namespace GeneratedWebApps.Data
 {
@@ -12,5 +13,6 @@ namespace GeneratedWebApps.Data
             : base(options)
         {
         }
+        public DbSet<GeneratedWebApps.Models.Rabbit> Rabbit { get; set; }
     }
 }
