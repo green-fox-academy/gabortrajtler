@@ -56,7 +56,6 @@ namespace ConsoleApplication1
             // Get the 1st 2 items
             ArrayList range = aList2.GetRange(0, 2);
             List<int> list = new List<int>();
-            list.GetRange
 
             /*
             // Remove the first item
@@ -85,6 +84,7 @@ namespace ConsoleApplication1
             string[] customers = { "Bob", "Sally", "Sue" };
             ArrayList custArrayList = new ArrayList();
             custArrayList.AddRange(customers);
+            customers[0].Count()
 
             #endregion
 

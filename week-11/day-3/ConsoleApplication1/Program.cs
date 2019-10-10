@@ -248,7 +248,7 @@ namespace ConsoleApplication1
                     Console.WriteLine(j);
                 }
             }
-            
+
             // foreach cycles through every item in an array or collection
             string randStr = "Here are some random characters";
 
@@ -430,7 +430,7 @@ namespace ConsoleApplication1
 
             // Does the List contain a value
             Console.WriteLine("5 in list " + numList3.Contains(5));
-            
+
             // Search for a value in a string List
             List<string> strList = new List<string>(new string[] { "Tom", "Paul" });
             Console.WriteLine("Tom in list " + strList.Contains("tom", StringComparer.OrdinalIgnoreCase));
@@ -518,7 +518,8 @@ namespace ConsoleApplication1
             // ---------- ANONYMOUS METHODS ----------
             // An anonymous method has no name and its return type is defined by the return used in the method
 
-            GetSum sum = delegate (double num1, double num2) {
+            GetSum sum = delegate (double num1, double num2)
+            {
                 return num1 + num2;
             };
 
