@@ -447,3 +447,6 @@ healthchecksdb
 MigrationBackup/
 
 # End of https://www.gitignore.io/api/visualstudio
+week-11/day-3/OtherExcercises/Class1.cs
+week-11/day-3/OtherExcercises/OtherExcercises.csproj
+week-11/day-3/OtherExcercises/Program.cs
