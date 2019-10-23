@@ -454,6 +454,9 @@ namespace ConsoleApplication1
             catch (DivideByZeroException ex)
             {
                 Console.WriteLine("Can't divide by zero");
+                string s1 = "abc";
+                string s2 = "def";
+                var s3 = (s1 + s2).Distinct().OrderBy(c => c).ToString();
 
                 // Get additonal info on the exception
                 Console.WriteLine(ex.GetType().Name);

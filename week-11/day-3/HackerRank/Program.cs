@@ -17,7 +17,6 @@ namespace HackerRank
 
     class Solution
     {
-
         // Complete the repeatedString function below.
         static long repeatedString(string s, long n)
         {
